@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.example.mylibrary.Country" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/cell_dialog_filter_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space_5"
+        android:gravity="center_vertical"
+        android:weightSum="1"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cell_dialog_filter_cb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight=".1"
+            android:layout_marginStart="@dimen/space_5"
+            android:checked="@{model.isSelected}"/>
+
+        <ImageView
+            android:id="@+id/cell_dialog_filter_flag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".15"
+            android:layout_marginStart="@dimen/space_5"
+            android:background="@color/white"/>
+
+        <TextView
+            android:id="@+id/cell_dialog_filtering_prefix"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.prefix}"
+            android:layout_weight=".2"
+            android:layout_marginStart="@dimen/space_5"
+            style="@style/tv_normal"/>
+
+        <TextView
+            android:id="@+id/cell_dialog_filtering_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.name}"
+            android:layout_weight=".5"
+            android:layout_marginStart="@dimen/space_5"
+            style="@style/tv_normal"/>
+
+        <ImageView
+            android:id="@+id/cell_dialog_filter_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight=".1"
+            android:layout_marginStart="@dimen/space_5"
+            android:visibility="@{model.isInfoHidden()}"
+            android:src="@drawable/info" />
+
+        <TextView
+            android:id="@+id/cell_dialog_filtering_sname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.sname}"
+            android:layout_weight=".3"
+            android:layout_marginStart="@dimen/space_5"
+            style="@style/tv_normal"/>
+
+        <TextView
+            android:id="@+id/cell_dialog_filtering_currency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.currency}"
+            android:layout_weight=".3"
+            android:layout_marginStart="@dimen/space_5"
+            style="@style/tv_normal"/>
+
+        <TextView
+            android:id="@+id/cell_dialog_filtering_scurrency"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.scurrency}"
+            android:layout_weight=".2"
+            android:layout_marginStart="@dimen/space_5"
+            style="@style/tv_normal"/>
+
+        <TextView
+            android:id="@+id/cell_dialog_filtering_capital"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.capital}"
+            android:layout_weight=".2"
+            android:layout_marginStart="@dimen/space_5"
+            style="@style/tv_normal"/>
+
+    </LinearLayout>
+
+</layout>

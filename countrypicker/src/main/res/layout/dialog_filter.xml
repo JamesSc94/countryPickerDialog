@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.example.mylibrary.vm.Vm_dialog_filter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialog_filter_cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/space_normal"
+        android:padding="@dimen/space_normal">
+
+        <EditText
+            android:id="@+id/dialog_filter_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_normal"
+            android:hint="@string/search"
+            android:inputType="text"
+            android:maxLines="1"
+            android:theme="@style/edittext"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/dialog_filter_sort_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:visibility="gone"
+            android:background="@drawable/rec_default"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_filter_search"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Spinner
+                android:id="@+id/dialog_filter_spinsort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dropdown"
+                android:layout_margin="@dimen/space_5"
+                android:backgroundTint="@color/black"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/space_5"
+                android:src="@drawable/sort_24" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dialog_filter_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            android:layout_marginTop="@dimen/space_5"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_filter_sort_ll"
+            app:layout_constraintBottom_toTopOf="@+id/dialog_filter_submit"
+            tools:listitem="@layout/cell_dialog_filtering"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/dialog_filter_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:textColor="@color/button_text"
+            android:visibility="gone"
+            android:enabled="false"
+            android:onClick="@{() -> vm.clickSubmit()}"
+            android:background="@drawable/button_submit"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

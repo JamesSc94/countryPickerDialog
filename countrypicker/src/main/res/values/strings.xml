@@ -1,0 +1,1395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">test_coding_kotlin</string>
+
+    <string name="search">Search</string>
+    <string name="submit">Submit</string>
+    <public type="string" name="public_string_in_lib2" />
+
+    <string-array name="country_name">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Antigua and Barbuda</item>
+        <item>Argentina</item>
+        <item>Armenia</item>
+        <item>Australia</item>
+        <item>Austria</item>
+        <item>Azerbaijan</item>
+        <item>Bahamas</item>
+        <item>Bahrain</item>
+        <item>Bangladesh</item>
+        <item>Barbados</item>
+        <item>Belarus</item>
+        <item>Belgium</item>
+        <item>Belize</item>
+        <item>Benin</item>
+        <item>Bhutan</item>
+        <item>Bolivia</item>
+        <item>Bosnia and Herzegovina</item>
+        <item>Botswana</item>
+        <item>Brazil</item>
+        <item>Brunei</item>
+        <item>Bulgaria</item>
+        <item>Burkina Faso</item>
+        <item>Burundi</item>
+        <item>Côte d\'Ivoire</item>
+        <item>Cabo Verde</item>
+        <item>Cambodia</item>
+        <item>Cameroon</item>
+        <item>Canada</item>
+        <item>Central African Republic</item>
+        <item>Chad</item>
+        <item>Chile</item>
+        <item>China</item>
+        <item>Colombia</item>
+        <item>Comoros</item>
+        <item>Congo (Congo-Brazzaville)</item>
+        <item>Costa Rica</item>
+        <item>Croatia</item>
+        <item>Cuba</item>
+        <item>Cyprus</item>
+        <item>Czechia (Czech Republic)</item>
+        <item>Democratic Republic of the Congo</item>
+        <item>Denmark</item>
+        <item>Djibouti</item>
+        <item>Dominica</item>
+        <item>Dominican Republic</item>
+        <item>Ecuador</item>
+        <item>Egypt</item>
+        <item>El Salvador</item>
+        <item>Equatorial Guinea</item>
+        <item>Eritrea</item>
+        <item>Estonia</item>
+        <item>Eswatini</item>
+        <item>Ethiopia</item>
+        <item>Fiji</item>
+        <item>Finland</item>
+        <item>France</item>
+        <item>Gabon</item>
+        <item>Gambia</item>
+        <item>Georgia</item>
+        <item>Germany</item>
+        <item>Ghana</item>
+        <item>Greece</item>
+        <item>Guatemala</item>
+        <item>Guinea</item>
+        <item>Guinea-Bissau</item>
+        <item>Guyana</item>
+        <item>Haiti</item>
+        <item>Holy See</item>
+        <item>Honduras</item>
+        <item>Hungary</item>
+        <item>Iceland</item>
+        <item>India</item>
+        <item>Indonesia</item>
+        <item>Iran</item>
+        <item>Iraq</item>
+        <item>Ireland</item>
+        <item>Israel</item>
+        <item>Italy</item>
+        <item>Jamaica</item>
+        <item>Japan</item>
+        <item>Jordan</item>
+        <item>Kazakhstan</item>
+        <item>Kenya</item>
+        <item>Kiribati</item>
+        <item>Kuwait</item>
+        <item>Kyrgyzstan</item>
+        <item>Laos</item>
+        <item>Latvia</item>
+        <item>Lebanon</item>
+        <item>Lesotho</item>
+        <item>Liberia</item>
+        <item>Libya</item>
+        <item>Liechtenstein</item>
+        <item>Lithuania</item>
+        <item>Luxembourg</item>
+        <item>Madagascar</item>
+        <item>Malawi</item>
+        <item>Malaysia</item>
+        <item>Maldives</item>
+        <item>Mali</item>
+        <item>Malta</item>
+        <item>Marshall Islands</item>
+        <item>Mauritania</item>
+        <item>Mauritius</item>
+        <item>Mexico</item>
+        <item>Micronesia</item>
+        <item>Moldova</item>
+        <item>Monaco</item>
+        <item>Mongolia</item>
+        <item>Montenegro</item>
+        <item>Morocco</item>
+        <item>Mozambique</item>
+        <item>Myanmar</item>
+        <item>Namibia</item>
+        <item>Nauru</item>
+        <item>Nepal</item>
+        <item>Netherlands</item>
+        <item>New Zealand</item>
+        <item>Nicaragua</item>
+        <item>Niger</item>
+        <item>Nigeria</item>
+        <item>North Korea</item>
+        <item>North Macedonia</item>
+        <item>Norway</item>
+        <item>Oman</item>
+        <item>Pakistan</item>
+        <item>Palau</item>
+        <item>Palestine State</item>
+        <item>Panama</item>
+        <item>Papua New Guinea</item>
+        <item>Paraguay</item>
+        <item>Peru</item>
+        <item>Philippines</item>
+        <item>Poland</item>
+        <item>Portugal</item>
+        <item>Qatar</item>
+        <item>Romania</item>
+        <item>Russia</item>
+        <item>Rwanda</item>
+        <item>Saint Kitts and Nevis</item>
+        <item>Saint Lucia</item>
+        <item>Saint Vincent and the Grenadines</item>
+        <item>Samoa</item>
+        <item>San Marino</item>
+        <item>Sao Tome and Principe</item>
+        <item>Saudi Arabia</item>
+        <item>Senegal</item>
+        <item>Serbia</item>
+        <item>Seychelles</item>
+        <item>Sierra Leone</item>
+        <item>Singapore</item>
+        <item>Slovakia</item>
+        <item>Slovenia</item>
+        <item>Solomon Islands</item>
+        <item>Somalia</item>
+        <item>South Africa</item>
+        <item>South Korea</item>
+        <item>South Sudan</item>
+        <item>Spain</item>
+        <item>Sri Lanka</item>
+        <item>Sudan</item>
+        <item>Suriname</item>
+        <item>Sweden</item>
+        <item>Switzerland</item>
+        <item>Syria</item>
+        <item>Taiwan</item>
+        <item>Tajikistan</item>
+        <item>Tanzania</item>
+        <item>Thailand</item>
+        <item>Timor-Leste</item>
+        <item>Togo</item>
+        <item>Tonga</item>
+        <item>Trinidad and Tobago</item>
+        <item>Tunisia</item>
+        <item>Turkey</item>
+        <item>Turkmenistan</item>
+        <item>Tuvalu</item>
+        <item>Uganda</item>
+        <item>Ukraine</item>
+        <item>United Arab Emirates</item>
+        <item>United Kingdom</item>
+        <item>United States of America</item>
+        <item>Uruguay</item>
+        <item>Uzbekistan</item>
+        <item>Vanuatu</item>
+        <item>Venezuela</item>
+        <item>Vietnam</item>
+        <item>Yemen</item>
+        <item>Zambia</item>
+        <item>Zimbabwe</item>
+    </string-array>
+
+    <string-array name="country_sname">
+        <item>AF</item>
+        <item>AL</item>
+        <item>DZ</item>
+        <item>AD</item>
+        <item>AO</item>
+        <item>AG</item>
+        <item>AR</item>
+        <item>AM</item>
+        <item>AU</item>
+        <item>AT</item>
+        <item>AZ</item>
+        <item>BS</item>
+        <item>BH</item>
+        <item>BD</item>
+        <item>BB</item>
+        <item>BY</item>
+        <item>BE</item>
+        <item>BZ</item>
+        <item>BJ</item>
+        <item>BT</item>
+        <item>BO</item>
+        <item>BA</item>
+        <item>BW</item>
+        <item>BR</item>
+        <item>BN</item>
+        <item>BG</item>
+        <item>BF</item>
+        <item>BI</item>
+        <item>CI</item>
+        <item>Cabo Verde</item>
+        <item>KH</item>
+        <item>CM</item>
+        <item>CA</item>
+        <item>CF</item>
+        <item>TD</item>
+        <item>CL</item>
+        <item>CN</item>
+        <item>CO</item>
+        <item>KM</item>
+        <item>CD</item>
+        <item>CR</item>
+        <item>HR</item>
+        <item>CU</item>
+        <item>CY</item>
+        <item>CZ</item>
+        <item>CD</item>
+        <item>DK</item>
+        <item>DJ</item>
+        <item>DM</item>
+        <item>DO</item>
+        <item>EC</item>
+        <item>EG</item>
+        <item>SV</item>
+        <item>GQ</item>
+        <item>ER</item>
+        <item>EE</item>
+        <item>SZ</item>
+        <item>ET</item>
+        <item>FJ</item>
+        <item>FI</item>
+        <item>FR</item>
+        <item>GA</item>
+        <item>GM</item>
+        <item>GE</item>
+        <item>DE</item>
+        <item>GH</item>
+        <item>GR</item>
+        <item>GT</item>
+        <item>GN</item>
+        <item>GW</item>
+        <item>GY</item>
+        <item>HT</item>
+        <item>VA</item>
+        <item>HN</item>
+        <item>HU</item>
+        <item>IS</item>
+        <item>IN</item>
+        <item>ID</item>
+        <item>IR</item>
+        <item>IQ</item>
+        <item>IE</item>
+        <item>IL</item>
+        <item>IT</item>
+        <item>JM</item>
+        <item>JP</item>
+        <item>JO</item>
+        <item>KZ</item>
+        <item>KE</item>
+        <item>KI</item>
+        <item>KW</item>
+        <item>KG</item>
+        <item>LA</item>
+        <item>LV</item>
+        <item>LB</item>
+        <item>LS</item>
+        <item>LR</item>
+        <item>LY</item>
+        <item>LI</item>
+        <item>LT</item>
+        <item>LU</item>
+        <item>MG</item>
+        <item>MW</item>
+        <item>MY</item>
+        <item>MV</item>
+        <item>ML</item>
+        <item>MT</item>
+        <item>MH</item>
+        <item>MR</item>
+        <item>MU</item>
+        <item>MX</item>
+        <item>FM</item>
+        <item>MD</item>
+        <item>MC</item>
+        <item>MN</item>
+        <item>ME</item>
+        <item>MA</item>
+        <item>MZ</item>
+        <item>MM</item>
+        <item>NA</item>
+        <item>NR</item>
+        <item>NP</item>
+        <item>NL</item>
+        <item>NZ</item>
+        <item>NI</item>
+        <item>NE</item>
+        <item>NG</item>
+        <item>KP</item>
+        <item>MK</item>
+        <item>NO</item>
+        <item>OM</item>
+        <item>PK</item>
+        <item>PW</item>
+        <item>PS</item>
+        <item>PA</item>
+        <item>PG</item>
+        <item>PY</item>
+        <item>PE</item>
+        <item>PH</item>
+        <item>PL</item>
+        <item>PT</item>
+        <item>QA</item>
+        <item>RO</item>
+        <item>RU</item>
+        <item>RW</item>
+        <item>KN</item>
+        <item>LC</item>
+        <item>VC</item>
+        <item>WS</item>
+        <item>SM</item>
+        <item>ST</item>
+        <item>SA</item>
+        <item>SN</item>
+        <item>RS</item>
+        <item>SC</item>
+        <item>SL</item>
+        <item>SG</item>
+        <item>SK</item>
+        <item>SI</item>
+        <item>SB </item>
+        <item>SO</item>
+        <item>ZA</item>
+        <item>KR</item>
+        <item>SS</item>
+        <item>ES</item>
+        <item>LK</item>
+        <item>SD</item>
+        <item>SR</item>
+        <item>SE</item>
+        <item>CH</item>
+        <item>SY</item>
+        <item>TW</item>
+        <item>TJ</item>
+        <item>TZ</item>
+        <item>TH</item>
+        <item>TP</item>
+        <item>TG</item>
+        <item>TO</item>
+        <item>TT</item>
+        <item>TN</item>
+        <item>TR</item>
+        <item>TM</item>
+        <item>TV</item>
+        <item>UG</item>
+        <item>UA</item>
+        <item>AE</item>
+        <item>GB</item>
+        <item>US</item>
+        <item>UY</item>
+        <item>UZ</item>
+        <item>VU</item>
+        <item>VE</item>
+        <item>VN</item>
+        <item>YE</item>
+        <item>ZM</item>
+        <item>ZW</item>
+    </string-array>
+
+    <string-array name="country_prefix">
+        <item>+93</item>
+        <item>+355</item>
+        <item>+213</item>
+        <item>+376</item>
+        <item>+244</item>
+        <item>+1&#8211;268</item>
+        <item>+54</item>
+        <item>+374</item>
+        <item>+61</item>
+        <item>+43</item>
+        <item>+994</item>
+        <item>+1&#8211;242</item>
+        <item>+973</item>
+        <item>+880</item>
+        <item>+1&#8211;246</item>
+        <item>+375</item>
+        <item>+32</item>
+        <item>+501</item>
+        <item>+229</item>
+        <item>+975</item>
+        <item>+591</item>
+        <item>+387</item>
+        <item>+267</item>
+        <item>+55</item>
+        <item>+673</item>
+        <item>+359</item>
+        <item>+226</item>
+        <item>+257</item>
+        <item>+225</item>
+        <item>+238</item>
+        <item>+855</item>
+        <item>+237</item>
+        <item>+1</item>
+        <item>+236</item>
+        <item>+235</item>
+        <item>+56</item>
+        <item>+86</item>
+        <item>+57</item>
+        <item>+269</item>
+        <item>+242</item>
+        <item>+506</item>
+        <item>+385</item>
+        <item>+53</item>
+        <item>+357</item>
+        <item>+420</item>
+        <item>+243</item>
+        <item>+45</item>
+        <item>+253</item>
+        <item>+1&#8211;767</item>
+        <item>+1&#8211;809, +1&#8211;829, +1&#8211;849</item>
+        <item>+593</item>
+        <item>+20</item>
+        <item>+503</item>
+        <item>+240</item>
+        <item>+291</item>
+        <item>+372</item>
+        <item>+268</item>
+        <item>+251</item>
+        <item>+679</item>
+        <item>+358</item>
+        <item>+33</item>
+        <item>+241</item>
+        <item>+220</item>
+        <item>+995</item>
+        <item>+49</item>
+        <item>+233</item>
+        <item>+30</item>
+        <item>+502</item>
+        <item>+224</item>
+        <item>+245</item>
+        <item>+592</item>
+        <item>+509</item>
+        <item>+379</item>
+        <item>+504</item>
+        <item>+36</item>
+        <item>+354</item>
+        <item>+91</item>
+        <item>+62</item>
+        <item>+98</item>
+        <item>+964</item>
+        <item>+353</item>
+        <item>+972</item>
+        <item>+39</item>
+        <item>+1&#8211;876</item>
+        <item>+81</item>
+        <item>+962</item>
+        <item>+7</item>
+        <item>+254</item>
+        <item>+686</item>
+        <item>+965</item>
+        <item>+996</item>
+        <item>+856</item>
+        <item>+371</item>
+        <item>+961</item>
+        <item>+266</item>
+        <item>+231</item>
+        <item>+218</item>
+        <item>+423</item>
+        <item>+370</item>
+        <item>+352</item>
+        <item>+261</item>
+        <item>+265</item>
+        <item>+60</item>
+        <item>+960</item>
+        <item>+223</item>
+        <item>+356</item>
+        <item>+692</item>
+        <item>+222</item>
+        <item>+230</item>
+        <item>+52</item>
+        <item>+691</item>
+        <item>+373</item>
+        <item>+377</item>
+        <item>+976</item>
+        <item>+382</item>
+        <item>+212</item>
+        <item>+258</item>
+        <item>+95</item>
+        <item>+264</item>
+        <item>+674</item>
+        <item>+977</item>
+        <item>+31</item>
+        <item>+64</item>
+        <item>+505</item>
+        <item>+227</item>
+        <item>+234</item>
+        <item>+850</item>
+        <item>+389</item>
+        <item>+47</item>
+        <item>+968</item>
+        <item>+92</item>
+        <item>+680</item>
+        <item>+970</item>
+        <item>+507</item>
+        <item>+675</item>
+        <item>+595</item>
+        <item>+51</item>
+        <item>+63</item>
+        <item>+48</item>
+        <item>+351</item>
+        <item>+974</item>
+        <item>+40</item>
+        <item>+7</item>
+        <item>+250</item>
+        <item>+1&#8211;869</item>
+        <item>1&#8211;758</item>
+        <item>1&#8211;784</item>
+        <item>+685</item>
+        <item>+378</item>
+        <item>+239</item>
+        <item>+966</item>
+        <item>+221</item>
+        <item>+381</item>
+        <item>+248</item>
+        <item>+232</item>
+        <item>+65</item>
+        <item>+421</item>
+        <item>+386</item>
+        <item>+677</item>
+        <item>+252</item>
+        <item>+27</item>
+        <item>+82</item>
+        <item>+211</item>
+        <item>+34</item>
+        <item>+94</item>
+        <item>+249</item>
+        <item>+597</item>
+        <item>+46</item>
+        <item>+41</item>
+        <item>+963</item>
+        <item>+886</item>
+        <item>+992</item>
+        <item>+255</item>
+        <item>+66</item>
+        <item>+670</item>
+        <item>+228</item>
+        <item>+676</item>
+        <item>1&#8211;868</item>
+        <item>+216</item>
+        <item>+90</item>
+        <item>+993</item>
+        <item>+688</item>
+        <item>+256</item>
+        <item>+380</item>
+        <item>+971</item>
+        <item>+44</item>
+        <item>+1</item>
+        <item>+598</item>
+        <item>+998</item>
+        <item>+678</item>
+        <item>+58</item>
+        <item>+84</item>
+        <item>+967</item>
+        <item>+260</item>
+        <item>+263</item>
+    </string-array>
+
+    <string-array name="country_currency">
+        <item>Afghan afghani</item>
+        <item>Albanian lek</item>
+        <item>Algerian dinar</item>
+        <item>Euro</item>
+        <item>Angolan kwanza</item>
+        <item>East Caribbean dollar</item>
+        <item>Argentine peso</item>
+        <item>Armenian dram</item>
+        <item>Australian dollar</item>
+        <item>Euro</item>
+        <item>Azerbaijani manat</item>
+        <item>Bahamian dollar</item>
+        <item>Bahraini dinar</item>
+        <item>Bangladeshi taka</item>
+        <item>Barbadian dollar</item>
+        <item>Belarusian ruble</item>
+        <item>Euro</item>
+        <item>Belize dollar</item>
+        <item>West African CFA franc</item>
+        <item>Bhutanese ngultrum</item>
+        <item>Bolivian boliviano</item>
+        <item>Bosnia and Herzegovina convertible mark</item>
+        <item>Botswana pula</item>
+        <item>Brazilian real</item>
+        <item>Brunei dollar</item>
+        <item>Bulgarian lev</item>
+        <item>West African CFA franc</item>
+        <item>Burundian franc</item>
+        <item>West African CFA franc</item>
+        <item>Cape Verdean escudo</item>
+        <item>Cambodian riel</item>
+        <item>Central African CFA franc</item>
+        <item>Canadian dollar</item>
+        <item>Central African CFA franc</item>
+        <item>Central African CFA franc</item>
+        <item>Chilean peso</item>
+        <item>Chinese yuan</item>
+        <item>Colombian peso</item>
+        <item>Comorian franc</item>
+        <item>Central African CFA franc</item>
+        <item>Costa Rican colón</item>
+        <item>Croatian kuna</item>
+        <item>Cuban peso</item>
+        <item>Euro</item>
+        <item>Czech koruna</item>
+        <item>Central African CFA franc</item>
+        <item>Danish krone</item>
+        <item>Djiboutian franc</item>
+        <item>East Caribbean dollar</item>
+        <item>Dominican peso</item>
+        <item>United States dollar</item>
+        <item>Egyptian pound</item>
+        <item>United States dollar</item>
+        <item>Central African CFA franc</item>
+        <item>Eritrean nakfa</item>
+        <item>Euro</item>
+        <item>Swazi lilangeni</item>
+        <item>Ethiopian birr</item>
+        <item>Fijian dollar</item>
+        <item>Euro</item>
+        <item>Euro</item>
+        <item>Central African CFA franc</item>
+        <item>Gambian dalasi</item>
+        <item>Georgian lari</item>
+        <item>Euro</item>
+        <item>Ghanaian cedi</item>
+        <item>Euro</item>
+        <item>Guatemalan quetzal</item>
+        <item>Guinean franc</item>
+        <item>West African CFA franc</item>
+        <item>Guyanese dollar</item>
+        <item>Haitian gourde</item>
+        <item>Euro</item>
+        <item>Honduran lempira</item>
+        <item>Hungarian forint</item>
+        <item>Icelandic króna</item>
+        <item>Indian rupee</item>
+        <item>Indonesian rupiah</item>
+        <item>Iranian rial</item>
+        <item>Iraqi dinar</item>
+        <item>Euro</item>
+        <item>Israeli new shekel</item>
+        <item>Euro</item>
+        <item>Jamaican dollar</item>
+        <item>Japanese yen</item>
+        <item>Jordanian dinar</item>
+        <item>Kazakhstani tenge</item>
+        <item>Kenyan shilling</item>
+        <item>Australian dollar</item>
+        <item>Kuwaiti dinar</item>
+        <item>Kyrgyzstani som</item>
+        <item>Lao kip</item>
+        <item>Euro</item>
+        <item>Lebanese pound</item>
+        <item>Lesotho loti</item>
+        <item>Liberian dollar</item>
+        <item>Libyan dinar</item>
+        <item>Swiss franc</item>
+        <item>Euro</item>
+        <item>Euro</item>
+        <item>Malagasy ariary</item>
+        <item>Malawian kwacha</item>
+        <item>Malaysian ringgit</item>
+        <item>Maldivian rufiyaa</item>
+        <item>West African CFA franc</item>
+        <item>Euro</item>
+        <item>United States dollar</item>
+        <item>Mauritanian ouguiya</item>
+        <item>Mauritian rupee</item>
+        <item>Mexican peso</item>
+        <item>United States dollar</item>
+        <item>Moldovan leu</item>
+        <item>Euro</item>
+        <item>Mongolian tögrög</item>
+        <item>Euro</item>
+        <item>Moroccan dirham</item>
+        <item>Mozambican metical</item>
+        <item>Burmese kyat</item>
+        <item>Namibian dollar</item>
+        <item>Australian dollar</item>
+        <item>Nepalese rupee</item>
+        <item>Euro</item>
+        <item>New Zealand dollar</item>
+        <item>Nicaraguan córdoba</item>
+        <item>West African CFA franc</item>
+        <item>Nigerian naira</item>
+        <item>North Korean won</item>
+        <item>Macedonian denar</item>
+        <item>Norwegian krone</item>
+        <item>Omani rial</item>
+        <item>Pakistani rupee</item>
+        <item>United States dollar</item>
+        <item>Israeli new shekel</item>
+        <item>Panamanian balboa</item>
+        <item>Papua New Guinean kina</item>
+        <item>Paraguayan guaraní</item>
+        <item>Peruvian sol</item>
+        <item>Philippine peso</item>
+        <item>Polish zloty</item>
+        <item>Euro</item>
+        <item>Qatari riyal</item>
+        <item>Romanian leu</item>
+        <item>Russian ruble</item>
+        <item>Rwandan franc</item>
+        <item>East Caribbean dollar</item>
+        <item>East Caribbean dollar</item>
+        <item>East Caribbean dollar</item>
+        <item>Samoan tala</item>
+        <item>Euro</item>
+        <item>São Tomé and Príncipe dobra</item>
+        <item>Saudi riyal</item>
+        <item>West African CFA franc</item>
+        <item>Serbian dinar</item>
+        <item>Seychellois rupee</item>
+        <item>Sierra Leonean leone</item>
+        <item>Singapore dollar</item>
+        <item>Euro</item>
+        <item>Euro</item>
+        <item>Solomon Islands dollar</item>
+        <item>Somali shilling</item>
+        <item>South African rand</item>
+        <item>South Korean won</item>
+        <item>South Sudanese pound</item>
+        <item>Euro</item>
+        <item>Sri Lankan rupee</item>
+        <item>Sudanese pound</item>
+        <item>Surinamese dollar</item>
+        <item>Swedish krona</item>
+        <item>Swiss franc</item>
+        <item>Syrian pound</item>
+        <item>New Taiwan dollar</item>
+        <item>Tajikistani somoni</item>
+        <item>Tanzanian shilling</item>
+        <item>Thai baht</item>
+        <item>United States Dollar</item>
+        <item>West African CFA franc</item>
+        <item>Tongan pa\'anga</item>
+        <item>Trinidad and Tobago dollar</item>
+        <item>Tunisian dinar</item>
+        <item>Turkish lira</item>
+        <item>Turkmenistan manat</item>
+        <item>Australian dollar</item>
+        <item>Ugandan shilling</item>
+        <item>Ukrainian hryvnia</item>
+        <item>United Arab Emirates dirham</item>
+        <item>British pound</item>
+        <item>United States dollar</item>
+        <item>Uruguayan peso</item>
+        <item>Uzbekistani som</item>
+        <item>Vanuatu vatu</item>
+        <item>Venezuelan bolívar</item>
+        <item>Vietnamese dong</item>
+        <item>Yemeni rial</item>
+        <item>Zambian kwacha</item>
+        <item>United States dollar</item>
+    </string-array>
+
+    <string-array name="country_scurrency">
+        <item>AFN</item>
+        <item>ALL</item>
+        <item>DZD</item>
+        <item>EUR</item>
+        <item>AOA</item>
+        <item>XCD</item>
+        <item>ARS</item>
+        <item>AMD</item>
+        <item>AUD</item>
+        <item>EUR</item>
+        <item>AZN</item>
+        <item>BSD</item>
+        <item>BHD</item>
+        <item>BDT</item>
+        <item>BBD</item>
+        <item>BYN</item>
+        <item>EUR</item>
+        <item>BZD</item>
+        <item>XOF</item>
+        <item>BTN</item>
+        <item>BOB</item>
+        <item>BAM</item>
+        <item>BWP</item>
+        <item>BRL</item>
+        <item>BND</item>
+        <item>BGN</item>
+        <item>XOF</item>
+        <item>BIF</item>
+        <item>XOF</item>
+        <item>CVE </item>
+        <item>KHR</item>
+        <item>XAF</item>
+        <item>CAD</item>
+        <item>XAF</item>
+        <item>XAF</item>
+        <item>CLP</item>
+        <item>CNY</item>
+        <item>COP</item>
+        <item>KMF</item>
+        <item>XAF</item>
+        <item>CRC</item>
+        <item>HRK</item>
+        <item>CUP</item>
+        <item>EUR</item>
+        <item>CZK</item>
+        <item>CDF</item>
+        <item>DKK</item>
+        <item>DJF</item>
+        <item>XCD</item>
+        <item>DOP</item>
+        <item>USD</item>
+        <item>EGP</item>
+        <item>USD</item>
+        <item>XAF</item>
+        <item>ERN</item>
+        <item>EUR</item>
+        <item>SZL</item>
+        <item>ETB</item>
+        <item>FJD</item>
+        <item>EUR</item>
+        <item>EUR</item>
+        <item>XAF</item>
+        <item>GMD</item>
+        <item>GEL</item>
+        <item>EUR</item>
+        <item>GHS</item>
+        <item>EUR</item>
+        <item>GTQ</item>
+        <item>GNF</item>
+        <item>XOF</item>
+        <item>GYD</item>
+        <item>HTG</item>
+        <item>Euro</item>
+        <item>HNL</item>
+        <item>HUF</item>
+        <item>ISK</item>
+        <item>INR</item>
+        <item>IDR</item>
+        <item>IRR</item>
+        <item>IQD</item>
+        <item>EUR</item>
+        <item>ILS</item>
+        <item>EUR</item>
+        <item>JMD</item>
+        <item>JPY</item>
+        <item>JOD</item>
+        <item>KZT</item>
+        <item>KES</item>
+        <item>AUD</item>
+        <item>KWD</item>
+        <item>KGS</item>
+        <item>LAK</item>
+        <item>EUR</item>
+        <item>LBP</item>
+        <item>LSL</item>
+        <item>LRD</item>
+        <item>LYD</item>
+        <item>CHF</item>
+        <item>EUR</item>
+        <item>EUR</item>
+        <item>MGA</item>
+        <item>MWK</item>
+        <item>MYR</item>
+        <item>MVR</item>
+        <item>XOF</item>
+        <item>EUR</item>
+        <item>USD</item>
+        <item>MRO</item>
+        <item>MUR</item>
+        <item>MXN</item>
+        <item>USD</item>
+        <item>MDL</item>
+        <item>EUR</item>
+        <item>MNT</item>
+        <item>EUR</item>
+        <item>MAD</item>
+        <item>MZN</item>
+        <item>MMK</item>
+        <item>NAD</item>
+        <item>AUD</item>
+        <item>NPR</item>
+        <item>EUR</item>
+        <item>NZD</item>
+        <item>NIO</item>
+        <item>XOF</item>
+        <item>NGN</item>
+        <item>KPW</item>
+        <item>MKD</item>
+        <item>NOK</item>
+        <item>OMR</item>
+        <item>PKR</item>
+        <item>USD</item>
+        <item>ILS</item>
+        <item>PAB</item>
+        <item>PGK</item>
+        <item>PYG</item>
+        <item>PEN</item>
+        <item>PHP</item>
+        <item>PLN</item>
+        <item>EUR</item>
+        <item>QAR</item>
+        <item>RON</item>
+        <item>RUB</item>
+        <item>RWF</item>
+        <item>XCD</item>
+        <item>XCD</item>
+        <item>XCD</item>
+        <item>WST</item>
+        <item>EUR</item>
+        <item>STD</item>
+        <item>SAR</item>
+        <item>XOF</item>
+        <item>RSD</item>
+        <item>SCR</item>
+        <item>SLL</item>
+        <item>SGD</item>
+        <item>EUR</item>
+        <item>EUR</item>
+        <item>SBD</item>
+        <item>SOS</item>
+        <item>ZAR</item>
+        <item>KRW</item>
+        <item>SSP</item>
+        <item>EUR</item>
+        <item>LKR</item>
+        <item>SDG</item>
+        <item>SRD</item>
+        <item>SEK</item>
+        <item>CHF</item>
+        <item>SYP</item>
+        <item>TWD</item>
+        <item>TJS</item>
+        <item>TZS</item>
+        <item>THB</item>
+        <item>USD</item>
+        <item>XOF</item>
+        <item>TOP</item>
+        <item>TTD</item>
+        <item>TND</item>
+        <item>TRY</item>
+        <item>TMT</item>
+        <item>AUD</item>
+        <item>UGX</item>
+        <item>UAH</item>
+        <item>AED</item>
+        <item>GBP</item>
+        <item>USD</item>
+        <item>UYU</item>
+        <item>UZS</item>
+        <item>VUV</item>
+        <item>VEF</item>
+        <item>VND</item>
+        <item>YER</item>
+        <item>ZMW</item>
+        <item>USD</item>
+    </string-array>
+
+    <string-array name="country_capital">
+        <item>Kabul</item>
+        <item>Tirana (Tirane)</item>
+        <item>Algiers</item>
+        <item>Andorra la Vella</item>
+        <item>Luanda</item>
+        <item>Saint John\'s</item>
+        <item>Buenos Aires</item>
+        <item>Yerevan</item>
+        <item>Canberra</item>
+        <item>Vienna</item>
+        <item>Baku</item>
+        <item>Nassau</item>
+        <item>Manama</item>
+        <item>Dhaka</item>
+        <item>Bridgetown</item>
+        <item>Minsk</item>
+        <item>Brussels</item>
+        <item>Belmopan</item>
+        <item>Porto Novo</item>
+        <item>Thimphu</item>
+        <item>Sucre</item>
+        <item>Sarajevo</item>
+        <item>Gaborone</item>
+        <item>Brasilia</item>
+        <item>Bandar Seri Begawan</item>
+        <item>Sofia</item>
+        <item>Ouagadougou</item>
+        <item>Gitega</item>
+        <item>Yamoussoukro</item>
+        <item>Praia</item>
+        <item>Phnom Penh</item>
+        <item>Yaounde</item>
+        <item>Ottawa</item>
+        <item>Bangui</item>
+        <item>N\'Djamena</item>
+        <item>Santiago</item>
+        <item>Beijing</item>
+        <item>Bogota</item>
+        <item>Moroni</item>
+        <item>Brazzaville</item>
+        <item>San Jose</item>
+        <item>Zagreb</item>
+        <item>Havana</item>
+        <item>Nicosia</item>
+        <item>Prague</item>
+        <item>Kinshasa</item>
+        <item>Copenhagen</item>
+        <item>Djibouti</item>
+        <item>Roseau</item>
+        <item>Santo Domingo</item>
+        <item>Quito</item>
+        <item>Cairo</item>
+        <item>San Salvador</item>
+        <item>Malabo</item>
+        <item>Asmara</item>
+        <item>Tallinn</item>
+        <item>Mbabana</item>
+        <item>Addis Ababa</item>
+        <item>Suva</item>
+        <item>Helsinki</item>
+        <item>Paris</item>
+        <item>Libreville</item>
+        <item>Banjul</item>
+        <item>Tbilisi</item>
+        <item>Berlin</item>
+        <item>Accra</item>
+        <item>Athens</item>
+        <item>Guatemala City</item>
+        <item>Conakry</item>
+        <item>Bissau</item>
+        <item>Georgetown</item>
+        <item>Port au Prince</item>
+        <item>Vatican City</item>
+        <item>Tegucigalpa</item>
+        <item>Budapest</item>
+        <item>Reykjavik</item>
+        <item>New Delhi</item>
+        <item>Jakarta</item>
+        <item>Tehran</item>
+        <item>Baghdad</item>
+        <item>Dublin</item>
+        <item>Jerusalem</item>
+        <item>Rome</item>
+        <item>Kingston</item>
+        <item>Tokyo</item>
+        <item>Amman</item>
+        <item>Nur-Sultan</item>
+        <item>Nairobi</item>
+        <item>Tarawa Atoll</item>
+        <item>Kuwait City</item>
+        <item>Bishkek</item>
+        <item>Vientiane</item>
+        <item>Riga</item>
+        <item>Beirut</item>
+        <item>Maseru</item>
+        <item>Monrovia</item>
+        <item>Tripoli</item>
+        <item>Vaduz</item>
+        <item>Vilnius</item>
+        <item>Luxembourg</item>
+        <item>Antananarivo</item>
+        <item>Lilongwe</item>
+        <item>Kuala Lumpur</item>
+        <item>Male</item>
+        <item>Bamako</item>
+        <item>Valletta</item>
+        <item>Majuro</item>
+        <item>Nouakchott</item>
+        <item>Port Louis</item>
+        <item>Mexico City</item>
+        <item>Palikir</item>
+        <item>Chisinau</item>
+        <item>Monaco</item>
+        <item>Ulaanbaatar</item>
+        <item>Podgorica</item>
+        <item>Rabat</item>
+        <item>Maputo</item>
+        <item>Nay Pyi Taw</item>
+        <item>Windhoek</item>
+        <item>Yaren</item>
+        <item>Kathmandu</item>
+        <item>Amsterdam</item>
+        <item>Wellington</item>
+        <item>Managua</item>
+        <item>Niamey</item>
+        <item>Abuja</item>
+        <item>Pyongyang</item>
+        <item>Skopje</item>
+        <item>Oslo</item>
+        <item>Muscat</item>
+        <item>Islamabad</item>
+        <item>Melekeok</item>
+        <item>Palestine State</item>
+        <item>Panama City</item>
+        <item>Port Moresby</item>
+        <item>Asuncion</item>
+        <item>Lima</item>
+        <item>Manila</item>
+        <item>Warsaw</item>
+        <item>Lisbon</item>
+        <item>Doha</item>
+        <item>Bucharest</item>
+        <item>Moscow</item>
+        <item>Kigali</item>
+        <item>Basseterre</item>
+        <item>Castries</item>
+        <item>Kingstown</item>
+        <item>Apia</item>
+        <item>San Marino</item>
+        <item>Sao Tome</item>
+        <item>Riyadh</item>
+        <item>Dakar</item>
+        <item>Belgrade</item>
+        <item>Victoria</item>
+        <item>Freetown</item>
+        <item>Singapore</item>
+        <item>Bratislava</item>
+        <item>Ljubljana</item>
+        <item>Honiara</item>
+        <item>Mogadishu</item>
+        <item>Pretoria, Bloemfontein, Cape Town</item>
+        <item>Seoul</item>
+        <item>Juba</item>
+        <item>Madrid</item>
+        <item>Colombo</item>
+        <item>Khartoum</item>
+        <item>Paramaribo</item>
+        <item>Stockholm</item>
+        <item>Bern</item>
+        <item>Damascus</item>
+        <item>Taipei</item>
+        <item>Dushanbe</item>
+        <item>Dodoma</item>
+        <item>Bangkok</item>
+        <item>Dili</item>
+        <item>Lome</item>
+        <item>Nuku\'alofa</item>
+        <item>Port of Spain</item>
+        <item>Tunis</item>
+        <item>Ankara</item>
+        <item>Ashgabat</item>
+        <item>Funafuti</item>
+        <item>Kampala</item>
+        <item>Kiev</item>
+        <item>Abu Dhabi</item>
+        <item>London</item>
+        <item>Washington D.C.</item>
+        <item>Montevideo</item>
+        <item>Tashkent</item>
+        <item>Port Vila</item>
+        <item>Caracas</item>
+        <item>Hanoi</item>
+        <item>Sana\'a</item>
+        <item>Lusaka</item>
+        <item>Harare</item>
+    </string-array>
+
+    <string-array name="country_flag">
+        <item>flag_afghanistan</item>
+        <item>flag_albania</item>
+        <item>flag_algeria</item>
+        <item>flag_andorra</item>
+        <item>flag_angola</item>
+        <item>flag_antigua_barbuda</item>
+        <item>flag_argentina</item>
+        <item>flag_armenia</item>
+        <item>flag_australia</item>
+        <item>flag_austria</item>
+        <item>flag_azerbaijan</item>
+        <item>flag_bahamas</item>
+        <item>flag_bahrain</item>
+        <item>flag_bangladesh</item>
+        <item>flag_barbados</item>
+        <item>flag_belarus</item>
+        <item>flag_belgium</item>
+        <item>flag_belize</item>
+        <item>flag_benin</item>
+        <item>flag_bhutan</item>
+        <item>flag_bolivia</item>
+        <item>flag_bosnia_herzegovina</item>
+        <item>flag_botswana</item>
+        <item>flag_brazil</item>
+        <item>flag_brunei</item>
+        <item>flag_bulgaria</item>
+        <item>flag_burkina_faso</item>
+        <item>flag_burundi</item>
+        <item>flag_coast_ivory</item>
+        <item>flag_verde_cape</item>
+        <item>flag_cambodia</item>
+        <item>flag_cameroon</item>
+        <item>flag_canada</item>
+        <item>flag_central_african_republic</item>
+        <item>flag_chad</item>
+        <item>flag_chile</item>
+        <item>flag_china</item>
+        <item>flag_colombia</item>
+        <item>flag_comoros</item>
+        <item>flag_congo</item>
+        <item>flag_costa_rica</item>
+        <item>flag_croatia</item>
+        <item>flag_cuba</item>
+        <item>flag_cyprus</item>
+        <item>flag_czech_republic</item>
+        <item>flag_congo</item>
+        <item>flag_denmark</item>
+        <item>flag_djibouti</item>
+        <item>flag_dominica</item>
+        <item>flag_dominican_republic</item>
+        <item>flag_ecuador</item>
+        <item>flag_egypt</item>
+        <item>flag_salvador</item>
+        <item>flag_equatorial_guinea</item>
+        <item>flag_eritrea</item>
+        <item>flag_estonia</item>
+        <item>flag_eswatini</item>
+        <item>flag_ethiopia</item>
+        <item>flag_fiji</item>
+        <item>flag_finland</item>
+        <item>flag_france</item>
+        <item>flag_gabon</item>
+        <item>flag_gambia</item>
+        <item>flag_georgia</item>
+        <item>flag_germany</item>
+        <item>flag_ghana</item>
+        <item>flag_greece</item>
+        <item>flag_guatemala</item>
+        <item>flag_guinea</item>
+        <item>flag_guinea_bissau</item>
+        <item>flag_guyana</item>
+        <item>flag_haiti</item>
+        <item>flag_holy_see</item>
+        <item>flag_honduras</item>
+        <item>flag_hungary</item>
+        <item>flag_iceland</item>
+        <item>flag_india</item>
+        <item>flag_indonesia</item>
+        <item>flag_iran</item>
+        <item>flag_iraq</item>
+        <item>flag_ireland</item>
+        <item>flag_israel</item>
+        <item>flag_italy</item>
+        <item>flag_jamaica</item>
+        <item>flag_japan</item>
+        <item>flag_jordan</item>
+        <item>flag_kazakhstan</item>
+        <item>flag_kenya</item>
+        <item>flag_kiribati</item>
+        <item>flag_kuwait</item>
+        <item>flag_kyrgyzstan</item>
+        <item>flag_laos</item>
+        <item>flag_latvia</item>
+        <item>flag_lebanon</item>
+        <item>flag_lesotho</item>
+        <item>flag_liberia</item>
+        <item>flag_libya</item>
+        <item>flag_liechtenstein</item>
+        <item>flag_lithuania</item>
+        <item>flag_luxembourg</item>
+        <item>flag_madagascar</item>
+        <item>flag_malawi</item>
+        <item>flag_malaysia</item>
+        <item>flag_maldives</item>
+        <item>flag_mali</item>
+        <item>flag_malta</item>
+        <item>flag_marshall</item>
+        <item>flag_mauritania</item>
+        <item>flag_mauritius</item>
+        <item>flag_mexico</item>
+        <item>flag_micronesia</item>
+        <item>flag_moldova</item>
+        <item>flag_monaco</item>
+        <item>flag_mongolia</item>
+        <item>flag_montenegro</item>
+        <item>flag_morocco</item>
+        <item>flag_mozambique</item>
+        <item>flag_myanmar</item>
+        <item>flag_namibia</item>
+        <item>flag_nauru</item>
+        <item>flag_nepal</item>
+        <item>flag_netherlands</item>
+        <item>flag_new_zealand</item>
+        <item>flag_nicaragua</item>
+        <item>flag_niger</item>
+        <item>flag_nigeria</item>
+        <item>flag_north_korea</item>
+        <item>flag_macedonia</item>
+        <item>flag_norway</item>
+        <item>flag_oman</item>
+        <item>flag_pakistan</item>
+        <item>flag_palau</item>
+        <item>flag_palestine</item>
+        <item>flag_panama</item>
+        <item>flag_papua_new_guinea</item>
+        <item>flag_paraguay</item>
+        <item>flag_peru</item>
+        <item>flag_philippines</item>
+        <item>flag_poland</item>
+        <item>flag_portugal</item>
+        <item>flag_qatar</item>
+        <item>flag_romania</item>
+        <item>flag_russia</item>
+        <item>flag_rwanda</item>
+        <item>flag_saint_kitts_nevis</item>
+        <item>flag_saint_lucia</item>
+        <item>flag_saint_vincent_grenadines</item>
+        <item>flag_samoa</item>
+        <item>flag_san_marino</item>
+        <item>flag_san_tome_principe</item>
+        <item>flag_arabia</item>
+        <item>flag_senegal</item>
+        <item>flag_serbia</item>
+        <item>flag_seychelles</item>
+        <item>flag_sierra_leone</item>
+        <item>flag_singapore</item>
+        <item>flag_slovakia</item>
+        <item>flag_slovenia</item>
+        <item>flag_solomon</item>
+        <item>flag_somalia</item>
+        <item>flag_south_africa</item>
+        <item>flag_korea_south</item>
+        <item>flag_south_sudan</item>
+        <item>flag_spain</item>
+        <item>flag_sri_lanka</item>
+        <item>flag_sudan</item>
+        <item>flag_suriname</item>
+        <item>flag_sweden</item>
+        <item>flag_switzerland</item>
+        <item>flag_syria</item>
+        <item>flag_taiwan</item>
+        <item>flag_tajikistan</item>
+        <item>flag_tanzania</item>
+        <item>flag_thailand</item>
+        <item>flag_timor_leste</item>
+        <item>flag_togo</item>
+        <item>flag_tonga</item>
+        <item>flag_tobago</item>
+        <item>flag_tunisia</item>
+        <item>flag_turkey</item>
+        <item>flag_turkmenistan</item>
+        <item>flag_tuvalu</item>
+        <item>flag_uganda</item>
+        <item>flag_ukraine</item>
+        <item>flag_arab</item>
+        <item>flag_uk</item>
+        <item>flag_usa</item>
+        <item>flag_uruguay</item>
+        <item>flag_uzbekistan</item>
+        <item>flag_vanuatu</item>
+        <item>flag_venezuela</item>
+        <item>flag_vietnam</item>
+        <item>flag_yemen</item>
+        <item>flag_zambia</item>
+        <item>flag_zimbabwe</item>
+    </string-array>
+
+</resources>
