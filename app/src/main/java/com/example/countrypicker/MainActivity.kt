@@ -23,36 +23,36 @@ class MainActivity : AppCompatActivity() {
         d.setVisibleInfo(true)
 
         //Position
-//        d.setPositionCheckbox(1)
-//        d.setPositionPrefix(1)
-//        d.setPositionIcon(1)
-//        d.setPositionName(1)
-//        d.setPositionNameShort(1)
-//        d.setPositionCurrency(1)
-//        d.setPositionCurrencyShort(1)
+        d.setPositionCheckbox(1)
+        d.setPositionPrefix(1)
+        d.setPositionIcon(1)
+        d.setPositionName(1)
+        d.setPositionNameShort(1)
+        d.setPositionCurrency(1)
+        d.setPositionCurrencyShort(1)
         d.setPositionCapital(1)
 
         //Weight
-//        d.setWeightCheckbox(1f)
-//        d.setWeightPrefix(1f)
-//        d.setWeightIcon(1f)
-//        d.setWeightName(1f)
-//        d.setWeightNameShort(1f)
-//        d.setWeightCurrency(1f)
-//        d.setWeightCurrencyShort(1f)
-//        d.setWeightCapital(1f)
-//        d.setWeightInfo(1f)
+        d.setWeightCheckbox(1f)
+        d.setWeightPrefix(1f)
+        d.setWeightIcon(1f)
+        d.setWeightName(1f)
+        d.setWeightNameShort(1f)
+        d.setWeightCurrency(1f)
+        d.setWeightCurrencyShort(1f)
+        d.setWeightCapital(1f)
+        d.setWeightInfo(1f)
 
         //Spacing
-//        d.setSpacingCheckbox(0.2f)
-//        d.setSpacingPrefix(0.2f)
-//        d.setSpacingIcon(0.1f)
-//        d.setSpacingName(0.3f)
-//        d.setSpacingNameShort(0.2f)
-//        d.setSpacingCurrency(0.3f)
-//        d.setSpacingCurrencyShort(0.1f)
-//        d.setSpacingCapital(0.5f)
-//        d.setSpacingInfo(0.2f)
+        d.setSpacingCheckbox(0.2f)
+        d.setSpacingPrefix(0.2f)
+        d.setSpacingIcon(0.1f)
+        d.setSpacingName(0.3f)
+        d.setSpacingNameShort(0.2f)
+        d.setSpacingCurrency(0.3f)
+        d.setSpacingCurrencyShort(0.1f)
+        d.setSpacingCapital(0.5f)
+        d.setSpacingInfo(0.2f)
 
         //Multi
         d.setCheckboxSelectionMax(3)
@@ -67,30 +67,30 @@ class MainActivity : AppCompatActivity() {
 
         val hm = HashMap<String, String>()
         hm["Malaysia"] = "malaysia individual"
-        hm["Indonesia"] = "indonesia individualllllllllll lllll l ll lll l l l l ll l ll ll lll l ll l l l l ll"
+        hm["Indonesia"] = "indonesia"
         d.setInfoMessageAll("All msg")
         d.setInfoMessageCustom(hm)
         d.setInfoHiddenOnly(hidden)
         d.setInfoShowOnly(showTemp)
 
         //Hidden
-//        d.setHiddenOnlyWithName(hidden)
-//        d.setShowOnlyWithName(show)
+        d.setHiddenOnlyWithName(hidden)
+        d.setShowOnlyWithName(show)
 
         //Filter
-//        d.setFilterByName()
-//        d.setFilterByNameShort()
-//        d.setFilterByPrefix()
-//        d.setFilterByCurreny()
-//        d.setFilterByCurrencyShort()
-//        d.setFilterByCapital()
+        d.setFilterByName()
+        d.setFilterByNameShort()
+        d.setFilterByPrefix()
+        d.setFilterByCurreny()
+        d.setFilterByCurrencyShort()
+        d.setFilterByCapital()
         d.setFilterByAll()
-//        d.setFilterScrollByName()
-//        d.setFilterScrollByNameShort()
-//        d.setFilterScrollByPrefix()
-//        d.setFilterScrollByCurreny()
-//        d.setFilterScrollByCurrencyShort()
-//        d.setFilterScrollByCapital()
+        d.setFilterScrollByName()
+        d.setFilterScrollByNameShort()
+        d.setFilterScrollByPrefix()
+        d.setFilterScrollByCurreny()
+        d.setFilterScrollByCurrencyShort()
+        d.setFilterScrollByCapital()
 
         //TextView
         d.setTextViewSizeName(20f)
@@ -163,7 +163,7 @@ class MainActivity : AppCompatActivity() {
 
         d.show(this.supportFragmentManager, "")
 
-        d.setInfoMessageAll("cacacacacaca")
+        d.setInfoMessageAll("aaaaaaaa")
         d.setSearchHint("bbbbbb")
         d.setTextViewSizeAll(25f)
 

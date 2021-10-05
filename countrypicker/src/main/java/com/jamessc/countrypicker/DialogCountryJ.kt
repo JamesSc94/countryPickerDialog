@@ -80,17 +80,8 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
             context?.let { llm_smooth(it, LinearLayoutManager.VERTICAL, false) }
 
         binding.dialogFilterRv.apply {
-//            adapter_rv = adapter_DialogFilter(util_country(context).country_sequence, this@DialogCountryJ, listenerSingle)
-//            vm.countryModels.value = util_country(context).list_country
-//            adapter_rv.submitList(vm.countryModels.value)
-//            adapter = adapter_rv.apply {
-//                modelsFull = currentList
-//
-//            }
-
             adapter = adapter_rv.apply {
                 vm.countryModels.value = modelsFull
-//                modelsFull = vm.countryModels.value as MutableList<Country>
 
             }
 
@@ -456,7 +447,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
     fun setInfoShowOnly(list : List<String>){
         adapter_rv.apply {
             modelsFull.hiddenInfo(list, true)
-//            submitList(modelsFull)
 
         }
 
@@ -466,7 +456,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
     fun setHiddenOnlyWithName(list : List<String>){
         adapter_rv.apply {
             modelsFull = modelsFull.filterName(list, false) as MutableList<Country>
-//            submitList(modelsFull)
 
         }
 
@@ -475,106 +464,81 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
     fun setShowOnlyWithName(list : List<String>){
         adapter_rv.apply {
             modelsFull = modelsFull.filterName(list, true) as MutableList<Country>
-//            submitList(modelsFull)
 
         }
 
     }
 
-    //Selection
-//    fun setOnSelectionListener(watcher : OnSelectionListener) {
-//        listenerSingle = watcher
-//
-//    }
-//
-//    fun setOnMultiSelectionListener(watcher : OnMultiSelectionListener) {
-//        listenerMulti = watcher
-//
-//    }
-
     //Filter By
     fun setFilterByName(){
         tempSearchScrollType = ""
-//        vm.searchScrollType = ""
         adapter_rv.filterType = "name"
 
     }
 
     fun setFilterByNameShort(){
         tempSearchScrollType = ""
-//        vm.searchScrollType = ""
         adapter_rv.filterType = "sname"
 
     }
 
     fun setFilterByPrefix(){
         tempSearchScrollType = ""
-//        vm.searchScrollType = ""
         adapter_rv.filterType = "prefix"
 
     }
 
     fun setFilterByCurreny(){
         tempSearchScrollType = ""
-//        vm.searchScrollType = ""
         adapter_rv.filterType = "currency"
 
     }
 
     fun setFilterByCurrencyShort(){
         tempSearchScrollType = ""
-//        vm.searchScrollType = ""
         adapter_rv.filterType = "scurrency"
 
     }
 
     fun setFilterByCapital(){
         tempSearchScrollType = ""
-//        vm.searchScrollType = ""
         adapter_rv.filterType = "capital"
 
     }
 
     fun setFilterByAll(){
         tempSearchScrollType = ""
-//        vm.searchScrollType = ""
         adapter_rv.filterType = "all"
 
     }
 
     fun setFilterScrollByName(){
         tempSearchScrollType = "name"
-//        vm.searchScrollType = "name"
 
     }
 
     fun setFilterScrollByNameShort(){
         tempSearchScrollType = "sname"
-//        vm.searchScrollType = "sname"
 
     }
 
     fun setFilterScrollByPrefix(){
         tempSearchScrollType = "prefix"
-//        vm.searchScrollType = "prefix"
 
     }
 
     fun setFilterScrollByCurreny(){
         tempSearchScrollType = "currency"
-//        vm.searchScrollType = "currency"
 
     }
 
     fun setFilterScrollByCurrencyShort(){
         tempSearchScrollType = "scurrency"
-//        vm.searchScrollType = "scurrency"
 
     }
 
     fun setFilterScrollByCapital(){
         tempSearchScrollType = "capital"
-//        vm.searchScrollType = "capital"
 
     }
 
@@ -631,8 +595,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -648,8 +610,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 
@@ -667,8 +627,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -684,8 +642,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 
@@ -703,8 +659,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -720,8 +674,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 
@@ -780,8 +732,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -797,8 +747,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 
@@ -816,8 +764,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -833,8 +779,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 
@@ -852,8 +796,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -869,8 +811,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 
@@ -929,8 +869,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -946,8 +884,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 
@@ -965,8 +901,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -982,8 +916,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 
@@ -1001,8 +933,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
             }
 
-//            submitList(modelsFull)
-
         }
 
     }
@@ -1018,8 +948,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
                 }
 
             }
-
-//            submitList(modelsFull)
 
         }
 

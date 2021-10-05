@@ -360,21 +360,11 @@ fun MutableList<Country>.hiddenInfo(list: List<String>, show: Boolean) {
 }
 
 fun MutableList<CountrySequence>.swap(pos : Int, posSet : Int){
-//    val ori = get(pos - 1)
-//    val hold = filter { it.sequence == posSet }
     val ori = this.realSeq(pos)
     val hold = get(posSet - 1)
 
     set(indexOfFirst { it.sequence == ori.sequence }, hold)
     set(posSet - 1, ori)
-
-//    if (hold.isNotEmpty()){
-//        set(pos - 1, hold[0])
-//        set(indexOfFirst { it.sequence == hold[0].sequence }, ori)
-////        get(pos - 1).sequence = hold[0].sequence
-////        get(indexOfFirst { it.sequence == hold[0].sequence }).sequence = ori
-//
-//    }
 
 }
 
