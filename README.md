@@ -12,4 +12,4 @@ Kotlin based Country Picker with DialogFragment which have control over numerous
 - Background color control
 - Cover Dark + Light mode
 
-Hope you like it, happy coding
+Happy coding
