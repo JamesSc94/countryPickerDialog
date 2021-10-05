@@ -1,25 +1,30 @@
-package com.example.mylibrary.vm
+package com.jamessc.countrypicker.vm
 
 import android.graphics.Color
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.mylibrary.Country
-import com.example.mylibrary.util.ConstantsCountry
-import com.example.mylibrary.util.ConstantsSearch
+import androidx.recyclerview.widget.RecyclerView
+import com.jamessc.countrypicker.Country
+import com.jamessc.countrypicker.util.ConstantsCountry
+import com.jamessc.countrypicker.util.ConstantsSearch
 
 class Vm_dialog_filter : ViewModel() {
 
-    var searchVisibility = true
-    var searchHint = ConstantsSearch.HINT
-    var searchColor = Color.BLACK
+    var searchVisibility = MutableLiveData<Boolean>()
+    var searchHint = MutableLiveData<String>()
+    var searchColor = MutableLiveData<Int>()
+    var searchScrollType = MutableLiveData<String>()
     var sortSpin = arrayListOf<String>("Name", "Short Name", "Currency", "Short Currency", "Capital")
-    var sortedType = 3
-    var sortedPrioritize = arrayListOf<String>()
+    var sortSpinFirst = MutableLiveData<Boolean>()
+    var sortedType = MutableLiveData<Int>()
+    var sortedVisiblity = MutableLiveData<Boolean>()
+    var sortedPrioritize = MutableLiveData<List<String>>()
+    var bgColor = MutableLiveData<Int>()
+    var bgColorSubmit = MutableLiveData<Int>()
     var multiSelectionSubmit = MutableLiveData<Boolean>()
-    var multiSelectionMin = 1
-    var multiSelectionMax = 100
-    var multiSelectionMsg = ConstantsCountry.MSGMULTIError
+    var multiSelectionMin = MutableLiveData<Int>()
+    var multiSelectionMax = MutableLiveData<Int>()
+    var multiSelectionMsg = MutableLiveData<String>()
     var countryModels = MutableLiveData<List<Country>>()
 
     fun clickSubmit(){

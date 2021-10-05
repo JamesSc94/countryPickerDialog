@@ -1,4 +1,4 @@
-package com.example.mylibrary.util
+package com.jamessc.countrypicker.util
 
 object ConstantsSearch {
     const val HINT = "Search Country"

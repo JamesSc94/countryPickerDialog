@@ -7,7 +7,7 @@
     <data>
         <variable
             name="vm"
-            type="com.example.mylibrary.vm.Vm_dialog_filter" />
+            type="com.jamessc.countrypicker.vm.Vm_dialog_filter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,7 +61,6 @@
             android:layout_height="0dp"
             android:scrollbars="vertical"
             android:layout_marginTop="@dimen/space_5"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/dialog_filter_sort_ll"
             app:layout_constraintBottom_toTopOf="@+id/dialog_filter_submit"
             tools:listitem="@layout/cell_dialog_filtering"/>

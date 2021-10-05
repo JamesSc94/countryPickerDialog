@@ -7,7 +7,7 @@
     <data>
         <variable
             name="model"
-            type="com.example.mylibrary.Country" />
+            type="com.jamessc.countrypicker.Country" />
 
     </data>
 
@@ -32,10 +32,10 @@
         <ImageView
             android:id="@+id/cell_dialog_filter_flag"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_weight=".15"
-            android:layout_marginStart="@dimen/space_5"
-            android:background="@color/white"/>
+            android:background="@android:color/transparent"
+            android:layout_marginStart="@dimen/space_5" />
 
         <TextView
             android:id="@+id/cell_dialog_filtering_prefix"

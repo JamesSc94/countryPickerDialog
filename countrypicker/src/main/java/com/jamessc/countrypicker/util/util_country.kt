@@ -1,13 +1,13 @@
-package com.example.mylibrary.util
+package com.jamessc.countrypicker.util
 
 import android.content.Context
 import android.graphics.Color
 import android.view.View
 import android.widget.LinearLayout
-import com.example.mylibrary.Country
-import com.example.mylibrary.CountrySequence
-import com.example.mylibrary.CountryTVSpec
-import com.example.mylibrary.R
+import com.jamessc.countrypicker.Country
+import com.jamessc.countrypicker.CountrySequence
+import com.jamessc.countrypicker.CountryTVSpec
+import com.jamessc.countrypicker.R
 
 class util_country(private val c : Context) {
 
@@ -43,7 +43,7 @@ class util_country(private val c : Context) {
             LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT).apply { weight = 0.1f }))
 
         //Icon
-        list.add(CountrySequence(2, 0.1f, 0f, false, 15f, Color.BLACK, false,
+        list.add(CountrySequence(2, 0.1f, 0f, true, 15f, Color.BLACK, false,
             LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT).apply { weight = 0.1f }))
 
         //Prefix
@@ -51,7 +51,7 @@ class util_country(private val c : Context) {
             LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT).apply { weight = 0.2f }))
 
         //Name
-        list.add(CountrySequence(4, 0.5f, 0f, false, 15f, Color.BLACK, false,
+        list.add(CountrySequence(4, 0.5f, 0f, true, 15f, Color.BLACK, false,
             LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT).apply { weight = 0.5f }))
 
         //Info

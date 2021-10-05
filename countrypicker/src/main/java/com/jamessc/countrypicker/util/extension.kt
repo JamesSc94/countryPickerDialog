@@ -1,4 +1,4 @@
-package com.example.mylibrary.util
+package com.jamessc.countrypicker.util
 
 import android.content.Context
 import android.graphics.Color
@@ -14,16 +14,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.util.Predicate
 import androidx.core.view.children
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import com.example.mylibrary.Country
-import com.example.mylibrary.CountrySequence
-import com.example.mylibrary.R
-import com.example.mylibrary.databinding.DialogPopupDescriptionBinding
+import com.jamessc.countrypicker.Country
+import com.jamessc.countrypicker.CountrySequence
+import com.jamessc.countrypicker.R
+import com.jamessc.countrypicker.vm.Vm_dialog_filter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -55,7 +57,13 @@ fun View.redrawCountrySequence(ll : LinearLayout, cseq : MutableList<CountrySequ
 
         }
 
-        v.CellInit(cseq.realSeq(i + 1).weight)
+        if(v is ImageView && v.id == R.id.cell_dialog_filter_flag && cseq.realSeq(2).visible){
+            v.CellInitImageView(cseq.realSeq(i + 1).weight)
+
+        }else{
+            v.CellInit(cseq.realSeq(i + 1).weight)
+
+        }
 
         childrens.add(v)
 
@@ -153,7 +161,20 @@ fun Space.CellInit(weight : Float) : Space {
 }
 
 fun View.CellInit(weight : Float) : View {
-    layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, weight)
+    layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, weight).apply {
+        setMargins(15,0,0,0)
+
+    }
+
+    return this
+
+}
+
+fun View.CellInitImageView(weight : Float) : View {
+    layoutParams = LinearLayout.LayoutParams(0, (500f * weight).toInt(), weight).apply {
+        setMargins(15,0,0,0)
+
+    }
 
     return this
 
@@ -322,15 +343,13 @@ fun MutableList<Country>.sortedBy(list: List<String>, type: Int) : MutableList<C
 
 fun MutableList<Country>.hiddenInfo(list: List<String>, show: Boolean) {
     this.onEach {
-        list.forEach { s ->
-            if(it.name.equals(s, true)){
+        for(l in list){
+            if(it.name.equals(l, true)){
                 it.isInfoHidden = if(show) View.VISIBLE else View.INVISIBLE
+                break
 
             }else{
-                if(show){
-                    it.isInfoHidden = View.INVISIBLE
-
-                }
+                it.isInfoHidden = if(show) View.INVISIBLE else View.VISIBLE
 
             }
 
@@ -340,24 +359,22 @@ fun MutableList<Country>.hiddenInfo(list: List<String>, show: Boolean) {
 
 }
 
-//fun <T> removeObject(list: MutableList<T>, predicate: Predicate<T>) {
-//    val newList: MutableList<T> = ArrayList()
-//    list.filter { predicate.test(it) }.forEach { newList.add(it) }
-//    list.removeAll(newList)
-//
-//}
-
 fun MutableList<CountrySequence>.swap(pos : Int, posSet : Int){
-    val ori = get(pos - 1)
-    val hold = filter { it.sequence == posSet }
+//    val ori = get(pos - 1)
+//    val hold = filter { it.sequence == posSet }
+    val ori = this.realSeq(pos)
+    val hold = get(posSet - 1)
 
-    if (hold.isNotEmpty()){
-        set(pos - 1, hold[0])
-        set(indexOfFirst { it.sequence == hold[0].sequence }, ori)
-//        get(pos - 1).sequence = hold[0].sequence
-//        get(indexOfFirst { it.sequence == hold[0].sequence }).sequence = ori
+    set(indexOfFirst { it.sequence == ori.sequence }, hold)
+    set(posSet - 1, ori)
 
-    }
+//    if (hold.isNotEmpty()){
+//        set(pos - 1, hold[0])
+//        set(indexOfFirst { it.sequence == hold[0].sequence }, ori)
+////        get(pos - 1).sequence = hold[0].sequence
+////        get(indexOfFirst { it.sequence == hold[0].sequence }).sequence = ori
+//
+//    }
 
 }
 

@@ -1,5 +1,6 @@
-package com.example.mylibrary
+package com.jamessc.countrypicker
 
+import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
@@ -16,11 +17,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.mylibrary.adapter.MultiButtonEnable
-import com.example.mylibrary.adapter.adapter_DialogFilter
-import com.example.mylibrary.databinding.DialogFilterBinding
-import com.example.mylibrary.util.*
-import com.example.mylibrary.vm.Vm_dialog_filter
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.jamessc.countrypicker.adapter.MultiButtonEnable
+import com.jamessc.countrypicker.adapter.adapter_DialogFilter
+import com.jamessc.countrypicker.databinding.DialogFilterBinding
+import com.jamessc.countrypicker.util.*
+import com.jamessc.countrypicker.vm.Vm_dialog_filter
 
 interface OnMultiSelectionListener {
     fun onResult(c : List<Country>)
@@ -32,15 +34,36 @@ interface OnSelectionListener {
 
 }
 
-class Dialog_filter : DialogFragment(), MultiButtonEnable,
+class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
     OnSelectionListener, OnMultiSelectionListener {
 
     private lateinit var vm : Vm_dialog_filter
     private lateinit var binding: DialogFilterBinding
-    private lateinit var adapter_rv: adapter_DialogFilter
+    private var adapter_rv: adapter_DialogFilter
+
+    private var tempMultiSelectionMin = 1
+    private var tempMultiSelectionMax = 100
+    private var tempMultiSelectionMsg = ConstantsCountry.MSGMULTIError
+    private var tempSearchScrollType = ""
+    private var tempSortedType = 3
+    private var tempSortedPrioritize = arrayListOf<String>()
+    private var tempSortedVisiblity = false
+    private var tempSearchVisibility = true
+    private var tempSearchHint = ConstantsSearch.HINT
+    private var tempSearchColor = Color.BLACK
+    private var tempBgColor = Color.TRANSPARENT
+    private var tempBgColorSubmit = R.drawable.button_submit
 
     private var listenerSingle : OnSelectionListener = this
     private var listenerMulti : OnMultiSelectionListener = this
+
+    init {
+        adapter_rv = adapter_DialogFilter(util_country(ctx).country_sequence, this@DialogCountryJ, listenerSingle).apply {
+            modelsFull = util_country(ctx).list_country as MutableList<Country>
+
+        }
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,9 +76,12 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
         vm = ViewModelProvider(this).get(Vm_dialog_filter::class.java)
         binding.vm = vm
 
+        binding.dialogFilterRv.layoutManager =
+            context?.let { llm_smooth(it, LinearLayoutManager.VERTICAL, false) }
+
         binding.dialogFilterRv.apply {
-            adapter_rv = adapter_DialogFilter(util_country(context).country_sequence, this@Dialog_filter, listenerSingle)
-            vm.countryModels.value = util_country(context).list_country
+//            adapter_rv = adapter_DialogFilter(util_country(context).country_sequence, this@DialogCountryJ, listenerSingle)
+//            vm.countryModels.value = util_country(context).list_country
 //            adapter_rv.submitList(vm.countryModels.value)
 //            adapter = adapter_rv.apply {
 //                modelsFull = currentList
@@ -63,7 +89,8 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
 //            }
 
             adapter = adapter_rv.apply {
-                modelsFull = vm.countryModels.value as MutableList<Country>
+                vm.countryModels.value = modelsFull
+//                modelsFull = vm.countryModels.value as MutableList<Country>
 
             }
 
@@ -76,12 +103,12 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
                 vm.multiSelectionSubmit.value = false
 
                 val temp = adapter_rv.currentList.filterCheckbox()
-                if(temp.size >= vm.multiSelectionMin && temp.size <= vm.multiSelectionMax){
+                if(temp.size >= vm.multiSelectionMin.value!! && temp.size <= vm.multiSelectionMax.value!!){
                     listenerMulti.onResult(temp)
                     dismiss()
 
                 }else{
-                    Toast.makeText(context, vm.multiSelectionMsg, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, vm.multiSelectionMsg.value, Toast.LENGTH_SHORT).show()
 
                 }
 
@@ -90,7 +117,28 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
         })
 
         binding.dialogFilterSearch.afterTextChanged {
-            adapter_rv.filter.filter(it)
+
+            if(vm.searchScrollType.value!!.isNotEmpty()){
+
+                val temp : List<Int> = when(vm.searchScrollType.value){
+                    "name" -> adapter_rv.modelsFull.withIndex().filter { name -> name.value.name.startsWith(it, true) }.map { ind -> ind.index }
+                    "sname" -> adapter_rv.modelsFull.withIndex().filter { sname -> sname.value.sname.startsWith(it, true) }.map { ind -> ind.index }
+                    "prefix" -> adapter_rv.modelsFull.withIndex().filter { prefix -> prefix.value.prefix.startsWith(it, true) }.map { ind -> ind.index }
+                    "currency" -> adapter_rv.modelsFull.withIndex().filter { currency -> currency.value.currency.startsWith(it, true) }.map { ind -> ind.index }
+                    "scurreny" -> adapter_rv.modelsFull.withIndex().filter { scurrency -> scurrency.value.scurrency.startsWith(it, true) }.map { ind -> ind.index }
+                    else -> adapter_rv.modelsFull.withIndex().filter { capital -> capital.value.capital.startsWith(it, true) }.map { ind -> ind.index }
+
+                }
+
+                if(temp.isNotEmpty()){
+                    binding.dialogFilterRv.smoothScrollToPosition(temp[0])
+
+                }
+
+            }else{
+                adapter_rv.filter.filter(it)
+
+            }
 
         }
 
@@ -99,6 +147,15 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
             aa.setDropDownViewResource(R.layout.spinner_tv)
 
             adapter = aa
+            vm.sortSpinFirst.value = true
+
+            setSelection(when(vm.sortedType.value){
+                4 -> 0
+                6 -> 1
+                7 -> 2
+                8 -> 3
+                else -> 4
+            })
 
             onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -106,7 +163,7 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
                 }
 
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    vm.sortedType = when(pos){
+                    vm.sortedType.value = when(pos){
                         0 -> 4
                         1 -> 6
                         2 -> 7
@@ -115,7 +172,13 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
 
                     }
 
-                    startSort()
+                    if(vm.sortSpinFirst.value != true){
+                        startSort()
+
+                    }else{
+                        vm.sortSpinFirst.value = false
+
+                    }
 
                 }
 
@@ -126,60 +189,12 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
         when(resources.configuration.uiMode.and(Configuration.UI_MODE_NIGHT_MASK)){
             Configuration.UI_MODE_NIGHT_YES -> adapter_rv.cseq.tvToColor(true)
             Configuration.UI_MODE_NIGHT_NO -> adapter_rv.cseq.tvToColor(false)
+
         }
 
-        var hm = HashMap<String, String>()
-        hm["Malaysia"] = "Differenttttttt"
-//
-//        setVisibleCheckbox(true)
-        setVisibleName(true)
-        setVisibleIcon(true)
-        setVisiblePrefix(true)
-//        setVisibleInfo(true)
-//        setVisibleNameShort(true)
-//        setVisibleCurrency(true)
-//        setVisibleCurrencyShort(true)
-//        setVisibleCapital(true)
-//        setInfoMessageAll("testtttttiiinngggg")
-//        setInfoHidden(arrayListOf("Algeria"))
-//        setInfoShow(arrayListOf("Algeria"))
-//        setInfoMessageCustom(hm)
-//        setFilterByNameShort()
-//        setFilterByAll()
-//        setTextViewSizeName(20f)
-//        setTextViewNameSizeWithName(arrayListOf("Malaysia", "Spain"), 25f)
-//        setTextViewPrefixSizeWithName(arrayListOf("Malaysia", "Spain"), 30f)
-//        setTextViewNameColorWithName(arrayListOf("Malaysia", "Spain"), Color.BLUE)
-//        setTextViewCapitalColorWithName(arrayListOf("Spain"), Color.GREEN)
-//        setTextViewNameBoldWithName(arrayListOf("Malaysia", "Spain"), true)
-//        setTextViewColorName(Color.RED)
-//        setTextViewBoldAll(true)
-//        setTextViewCapitalBoldWithName(arrayListOf("Malaysia", "Spain"), true)
-//        setTextViewNameShortSizeWithName(arrayListOf("Singapore"), 25f)
-//        setHiddenOnlyWithName(arrayListOf("Malaysia"))
-//        setShowOnlyWithName(arrayListOf("Malaysia"))
-//        setWeightIcon(1f)
-//        setPositionName(1)
-//        setWeightName(0.9f)
-//        setSpacingName(0.2f)
-//        setCheckboxSelectionMin(3)
-//        setCheckboxSelectionMax(5)
-//        setCheckboxSelectionMsg("test again")
-//        setTextViewCurrencySizeWithName(arrayListOf("Philippine"), 25f)
-//
-//        setSearchVisiblity(false)
-//        setSearchHint("New Search")
-//        setSearchTextColor(Color.RED)
-//        setSortByCapital()
-//        setSortPrioritizeByName(arrayListOf("Malaysia","Singapore"))
-//
-//        setBackgroundColor(Color.GRAY)
-//        setSortVisibility(false)
+        initBinding()
 
-//        setBackgroundColorButton(R.drawable.button_submit_dark)
-//        setBackgroundListOddColor(Color.GREEN)
-//        setBackgroundListEvenColor(Color.YELLOW)
-        build()
+        adapter_rv.submitList(vm.countryModels.value)
 
         return binding.root
 
@@ -202,7 +217,7 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
             if(adapter_rv.cseq[0].visible){
                 val temp = adapter_rv.currentList.filterCheckbox()
 
-                binding.dialogFilterSubmit.isEnabled = temp.size >= vm.multiSelectionMin
+                binding.dialogFilterSubmit.isEnabled = temp.size >= vm.multiSelectionMin.value!!
 
             }
 
@@ -213,8 +228,6 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
     //VISIBILITY
     fun setVisibleCheckbox(b : Boolean){
         adapter_rv.cseq.realSeq(1).visible = b
-
-        if(b) binding.dialogFilterSubmit.visibility = VISIBLE else GONE
 
     }
 
@@ -398,28 +411,30 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
 
     //Multi
     fun setCheckboxSelectionMin(min : Int){
-        vm.multiSelectionMin = if(min > 0) min else 1
+        if(::vm.isInitialized) vm.multiSelectionMin.value = if(min > 0) min else 1
+        else tempMultiSelectionMin = if(min > 0) min else 1
 
     }
 
     fun setCheckboxSelectionMax(max : Int){
-        vm.multiSelectionMax = if(max > 0) max else 1
+        if(::vm.isInitialized) vm.multiSelectionMax.value = if(max > 0) max else 1
+        else tempMultiSelectionMax = if(max > 0) max else 1
 
     }
 
     fun setCheckboxSelectionMsg(msg : String){
-        vm.multiSelectionMsg = msg
+        if(::vm.isInitialized) vm.multiSelectionMsg.value = msg
+        else tempMultiSelectionMsg = msg
 
     }
 
     //Info
     fun setInfoMessageAll(info : String){
         adapter_rv.apply {
-            modelsFull = modelsFull.onEach {
+            modelsFull.onEach {
                 it.info = info
-            }
 
-//            submitList(modelsFull)
+            }
 
         }
 
@@ -430,19 +445,18 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
 
     }
 
-    fun setInfoHidden(list : List<String>){
+    fun setInfoHiddenOnly(list : List<String>){
         adapter_rv.apply {
             modelsFull.hiddenInfo(list, false)
-//            submitList(modelsFull)
 
         }
 
     }
 
-    fun setInfoShow(list : List<String>){
+    fun setInfoShowOnly(list : List<String>){
         adapter_rv.apply {
             modelsFull.hiddenInfo(list, true)
-            submitList(modelsFull)
+//            submitList(modelsFull)
 
         }
 
@@ -468,49 +482,99 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
     }
 
     //Selection
-    fun setOnSelectionListener(watcher : OnSelectionListener) {
-        listenerSingle = watcher
-
-    }
-
-    fun setOnMultiSelectionListener(watcher : OnMultiSelectionListener) {
-        listenerMulti = watcher
-
-    }
+//    fun setOnSelectionListener(watcher : OnSelectionListener) {
+//        listenerSingle = watcher
+//
+//    }
+//
+//    fun setOnMultiSelectionListener(watcher : OnMultiSelectionListener) {
+//        listenerMulti = watcher
+//
+//    }
 
     //Filter By
     fun setFilterByName(){
+        tempSearchScrollType = ""
+//        vm.searchScrollType = ""
         adapter_rv.filterType = "name"
 
     }
 
     fun setFilterByNameShort(){
+        tempSearchScrollType = ""
+//        vm.searchScrollType = ""
         adapter_rv.filterType = "sname"
 
     }
 
     fun setFilterByPrefix(){
+        tempSearchScrollType = ""
+//        vm.searchScrollType = ""
         adapter_rv.filterType = "prefix"
 
     }
 
-    fun setFilterCurreny(){
+    fun setFilterByCurreny(){
+        tempSearchScrollType = ""
+//        vm.searchScrollType = ""
         adapter_rv.filterType = "currency"
 
     }
 
     fun setFilterByCurrencyShort(){
+        tempSearchScrollType = ""
+//        vm.searchScrollType = ""
         adapter_rv.filterType = "scurrency"
 
     }
 
-    fun setFilterCapital(){
+    fun setFilterByCapital(){
+        tempSearchScrollType = ""
+//        vm.searchScrollType = ""
         adapter_rv.filterType = "capital"
 
     }
 
     fun setFilterByAll(){
+        tempSearchScrollType = ""
+//        vm.searchScrollType = ""
         adapter_rv.filterType = "all"
+
+    }
+
+    fun setFilterScrollByName(){
+        tempSearchScrollType = "name"
+//        vm.searchScrollType = "name"
+
+    }
+
+    fun setFilterScrollByNameShort(){
+        tempSearchScrollType = "sname"
+//        vm.searchScrollType = "sname"
+
+    }
+
+    fun setFilterScrollByPrefix(){
+        tempSearchScrollType = "prefix"
+//        vm.searchScrollType = "prefix"
+
+    }
+
+    fun setFilterScrollByCurreny(){
+        tempSearchScrollType = "currency"
+//        vm.searchScrollType = "currency"
+
+    }
+
+    fun setFilterScrollByCurrencyShort(){
+        tempSearchScrollType = "scurrency"
+//        vm.searchScrollType = "scurrency"
+
+    }
+
+    fun setFilterScrollByCapital(){
+        tempSearchScrollType = "capital"
+//        vm.searchScrollType = "capital"
 
     }
 
@@ -963,42 +1027,48 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
 
     //Sort
     fun setSortByName(){
-        vm.sortedType = 4
+        if(::vm.isInitialized) vm.sortedType.value = 4
+        else tempSortedType = 4
 
         startSort()
 
     }
 
     fun setSortByNameShort(){
-        vm.sortedType = 6
+        if(::vm.isInitialized) vm.sortedType.value = 6
+        else tempSortedType = 6
 
         startSort()
 
     }
 
     fun setSortByCurrency(){
-        vm.sortedType = 7
+        if(::vm.isInitialized) vm.sortedType.value = 7
+        else tempSortedType = 7
 
         startSort()
 
     }
 
     fun setSortByCurrencyShort(){
-        vm.sortedType = 8
+        if(::vm.isInitialized) vm.sortedType.value = 8
+        else tempSortedType = 8
 
         startSort()
 
     }
 
     fun setSortByCapital(){
-        vm.sortedType = 9
+        if(::vm.isInitialized) vm.sortedType.value = 9
+        else tempSortedType = 9
 
         startSort()
 
     }
 
     fun setSortPrioritizeByName(list : ArrayList<String>){
-        vm.sortedPrioritize = list
+        if(::vm.isInitialized) vm.sortedPrioritize.value = list
+        else tempSortedPrioritize = list
 
         startSort()
 
@@ -1006,10 +1076,12 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
 
     private fun startSort(){
         adapter_rv.apply {
-            val temp = modelsFull.sortedBy(vm.sortedPrioritize, vm.sortedType)
+            val temp = if(::vm.isInitialized) modelsFull.sortedBy(vm.sortedPrioritize.value!!, vm.sortedType.value!!)
+            else modelsFull.sortedBy(tempSortedPrioritize, tempSortedType)
 
             modelsFull = temp
-//            submitList(modelsFull)
+
+            if(::vm.isInitialized) submitList(modelsFull)
 
         }
 
@@ -1017,40 +1089,40 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
 
     //Search
     fun setSearchVisiblity(b: Boolean){
-        vm.searchVisibility = b
-
-        binding.dialogFilterSearch.visibility = if(b) VISIBLE else GONE
+        if(::vm.isInitialized) vm.searchVisibility.value = b
+        else tempSearchVisibility = b
 
     }
 
     fun setSearchHint(s: String){
-        vm.searchHint = s
-
-        binding.dialogFilterSearch.hint = s
+        if(::vm.isInitialized) vm.searchHint.value = s
+        else tempSearchHint = s
 
     }
 
     fun setSearchTextColor(c: Int){
-        vm.searchColor = c
-
-        binding.dialogFilterSearch.setTextColor(c)
+        if(::vm.isInitialized) vm.searchColor.value = c
+        else tempSearchColor = c
 
     }
 
     //Spinner
     fun setSortVisibility(b: Boolean){
-        binding.dialogFilterSortLl.visibility = if(b) VISIBLE else GONE
+        if(::vm.isInitialized) vm.sortedVisiblity.value = b
+        else tempSortedVisiblity = b
 
     }
 
     //BG
     fun setBackgroundColor(c: Int){
-        binding.dialogFilterCl.setBackgroundColor(c)
+        if(::vm.isInitialized) vm.bgColor.value = c
+        else tempBgColor = c
 
     }
 
     fun setBackgroundColorButton(d: Int){
-        binding.dialogFilterSubmit.setBackgroundResource(d)
+        if(::vm.isInitialized) vm.bgColorSubmit.value = d
+        else tempBgColorSubmit = d
 
     }
 
@@ -1073,9 +1145,28 @@ class Dialog_filter : DialogFragment(), MultiButtonEnable,
 
     }
 
-    fun build(){
-        adapter_rv.submitList(vm.countryModels.value)
-//        adapter_rv.notifyDataSetChanged()
+    //initBinding
+    private fun initBinding(){
+        vm.multiSelectionMin.value = tempMultiSelectionMin
+        vm.multiSelectionMax.value = tempMultiSelectionMax
+        vm.multiSelectionMsg.value = tempMultiSelectionMsg
+        vm.searchScrollType.value = tempSearchScrollType
+        vm.sortedType.value = tempSortedType
+        vm.sortedPrioritize.value = tempSortedPrioritize
+        vm.sortedVisiblity.value = tempSortedVisiblity
+        vm.searchVisibility.value = tempSearchVisibility
+        vm.searchHint.value = tempSearchHint
+        vm.searchColor.value = tempSearchColor
+        vm.bgColor.value = tempBgColor
+        vm.bgColorSubmit.value = tempBgColorSubmit
+
+        binding.dialogFilterSubmit.visibility = if(adapter_rv.cseq.realSeq(1).visible) VISIBLE else GONE
+        binding.dialogFilterSearch.visibility = if(vm.searchVisibility.value!!) VISIBLE else GONE
+        binding.dialogFilterSearch.hint = vm.searchHint.value
+        binding.dialogFilterSearch.setTextColor(vm.searchColor.value!!)
+        binding.dialogFilterSortLl.visibility = if(vm.sortedVisiblity.value!!) VISIBLE else GONE
+        binding.dialogFilterCl.setBackgroundColor(vm.bgColor.value!!)
+        binding.dialogFilterSubmit.setBackgroundResource(vm.bgColorSubmit.value!!)
 
     }
 

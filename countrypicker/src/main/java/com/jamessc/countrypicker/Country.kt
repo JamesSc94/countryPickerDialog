@@ -1,4 +1,4 @@
-package com.example.mylibrary
+package com.jamessc.countrypicker
 
 import android.widget.LinearLayout
 

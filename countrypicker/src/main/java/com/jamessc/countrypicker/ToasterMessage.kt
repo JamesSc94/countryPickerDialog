@@ -1,4 +1,4 @@
-package com.example.mylibrary
+package com.jamessc.countrypicker
 
 import android.content.Context
 import android.widget.Toast

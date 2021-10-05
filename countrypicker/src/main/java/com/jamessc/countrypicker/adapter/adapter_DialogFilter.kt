@@ -1,4 +1,4 @@
-package com.example.mylibrary.adapter
+package com.jamessc.countrypicker.adapter
 
 import android.content.Context
 import android.graphics.Color
@@ -14,13 +14,16 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.mylibrary.*
-import com.example.mylibrary.adapter.adapter_DialogFilter.ItemViewHolder
-import com.example.mylibrary.databinding.CellDialogFilteringBinding
-import com.example.mylibrary.util.getImage
-import com.example.mylibrary.util.normal
-import com.example.mylibrary.util.realSeq
-import com.example.mylibrary.util.redrawCountrySequence
+import com.jamessc.countrypicker.Country
+import com.jamessc.countrypicker.CountrySequence
+import com.jamessc.countrypicker.DialogCountryJ
+import com.jamessc.countrypicker.OnSelectionListener
+import com.jamessc.countrypicker.databinding.CellDialogFilteringBinding
+import com.jamessc.countrypicker.util.getImage
+import com.jamessc.countrypicker.util.normal
+import com.jamessc.countrypicker.util.realSeq
+import com.jamessc.countrypicker.util.redrawCountrySequence
+
 
 interface MultiButtonEnable {
     fun multiChanged()
@@ -28,8 +31,9 @@ interface MultiButtonEnable {
 }
 
 class adapter_DialogFilter constructor(val cseq : MutableList<CountrySequence>,
-                                       val frag : Dialog_filter,
-                                       var listenerSingle : OnSelectionListener) : ListAdapter<Country, ItemViewHolder>(adapter_DialogFilter_DiffCallback()), Filterable {
+                                       val frag : DialogCountryJ,
+                                       var listenerSingle : OnSelectionListener
+) : ListAdapter<Country, adapter_DialogFilter.ItemViewHolder>(adapter_DialogFilter_DiffCallback()), Filterable {
 
     var filterType = "name"
     var oddColor = Color.TRANSPARENT
@@ -54,17 +58,17 @@ class adapter_DialogFilter constructor(val cseq : MutableList<CountrySequence>,
 
     }
 
-    class ItemViewHolder(itemView: View, val binding : CellDialogFilteringBinding,
+    class ItemViewHolder(itemView: View, private val binding : CellDialogFilteringBinding,
                          private val cseq: MutableList<CountrySequence>,
-                         private val multiSelection : Boolean, private val frag : Dialog_filter,
+                         private val multiSelection : Boolean, private val frag : DialogCountryJ,
                          private  val overrideSeq : List<Int>,
-                         val listener : OnSelectionListener) : RecyclerView.ViewHolder(itemView) {
+                         private val listener : OnSelectionListener) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Country) = with(itemView) {
             binding.model = item
             binding.executePendingBindings()
 
-            Glide.with(itemView.context).load(item.flag.getImage(itemView.context)).centerInside().into(binding.cellDialogFilterFlag)
+            Glide.with(itemView.context).load(item.flag.getImage(itemView.context)).centerCrop().into(binding.cellDialogFilterFlag)
 
             overrideSeq.onEach {
                 when(it){

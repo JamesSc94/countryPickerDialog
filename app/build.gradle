@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation project(path: ':countrypicker')
     def lifecycle_version = "2.3.1"
 
     ext{
@@ -55,5 +56,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+//    implementation 'com.github.JamesSc94:CountryPicker:0.0.1'
 
 }
