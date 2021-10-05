@@ -45,7 +45,7 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
     private var tempMultiSelectionMax = 100
     private var tempMultiSelectionMsg = ConstantsCountry.MSGMULTIError
     private var tempSearchScrollType = ""
-    private var tempSortedType = 3
+    private var tempSortedType = 4
     private var tempSortedPrioritize = arrayListOf<String>()
     private var tempSortedVisiblity = false
     private var tempSearchVisibility = true
