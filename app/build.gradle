@@ -56,6 +56,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
-//    implementation 'com.github.JamesSc94:CountryPicker:0.0.1'
+    implementation project(':countrypicker')
 
 }
