@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':countrypicker')
+    implementation project(path: ':dcountrypicker')
     def lifecycle_version = "2.3.1"
 
     ext{
