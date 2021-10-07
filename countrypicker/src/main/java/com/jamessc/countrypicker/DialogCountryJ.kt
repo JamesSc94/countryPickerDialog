@@ -63,6 +63,9 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
         }
 
+//        ToasterMessager.toastMessage(this, "")
+//        ToasterMessage
+
     }
 
     override fun onCreateView(
