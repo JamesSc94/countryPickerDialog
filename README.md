@@ -12,6 +12,32 @@ Kotlin based Country Picker with DialogFragment which have control over numerous
 - Background color control
 - Cover Dark + Light mode
 
+
+Step 1. Add thse into your root build.gradle:
+```
+allprojects {
+    repositories {
+	...
+	maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+Step 2. Add the dependency
+```
+dependencies {
+  implementation 'com.github.JamesSc94:CountryPickerDialog:1.5'
+}
+```
+
+Step 3. Enable databinding is a must
+```
+dataBinding {
+  enabled = true
+}
+```
+    
+
 Happy coding
 
 
