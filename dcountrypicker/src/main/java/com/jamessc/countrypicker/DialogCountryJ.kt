@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -62,9 +61,6 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
             modelsFull = util_country(ctx).list_country as MutableList<Country>
 
         }
-
-//        ToasterMessager.toastMessage(this, "")
-//        ToasterMessage
 
     }
 
@@ -1073,6 +1069,17 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
     }
 
     override fun onResult(c: List<Country>) {
+
+    }
+
+    //Selection
+    fun setOnSelectionListener(watcher : OnSelectionListener) {
+        listenerSingle = watcher
+
+    }
+
+    fun setOnMultiSelectionListener(watcher: OnMultiSelectionListener) {
+        listenerMulti = watcher
 
     }
 

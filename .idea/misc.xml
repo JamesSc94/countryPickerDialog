@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/james.tan/AndroidStudioProjects/countrypicker/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/james.tan/AndroidStudioProjects/countrypicker/countrypicker/src/main/res/layout/cell_dialog_filtering.xml" value="0.1213768115942029" />
         <entry key="..\:/Users/james.tan/AndroidStudioProjects/countrypicker/countrypicker/src/main/res/layout/dialog_filter.xml" value="0.1" />
         <entry key="..\:/Users/james.tan/AndroidStudioProjects/countrypicker/countrypicker/src/main/res/layout/dialog_popup_description.xml" value="0.1213768115942029" />
         <entry key="..\:/Users/james.tan/AndroidStudioProjects/countrypicker/countrypicker/src/main/res/layout/spinner_tv.xml" value="0.1213768115942029" />
+        <entry key="..\:/Users/james.tan/AndroidStudioProjects/countrypicker/dcountrypicker/src/main/res/layout/cell_dialog_filtering.xml" value="0.1" />
+        <entry key="..\:/Users/james.tan/AndroidStudioProjects/countrypicker/dcountrypicker/src/main/res/layout/cell_temp.xml" value="0.10416666666666667" />
       </map>
     </option>
   </component>
