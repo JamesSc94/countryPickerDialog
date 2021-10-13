@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -12,16 +13,20 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jamessc.countrypicker.adapter.MultiButtonEnable
 import com.jamessc.countrypicker.adapter.adapter_DialogFilter
 import com.jamessc.countrypicker.databinding.DialogFilterBinding
 import com.jamessc.countrypicker.util.*
 import com.jamessc.countrypicker.vm.Vm_dialog_filter
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 interface OnMultiSelectionListener {
     fun onResult(c : List<Country>)
@@ -48,6 +53,7 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
     private var tempSortedPrioritize = arrayListOf<String>()
     private var tempSortedVisiblity = false
     private var tempSearchVisibility = true
+    private var tempDivider = false
     private var tempSearchHint = ConstantsSearch.HINT
     private var tempSearchColor = Color.BLACK
     private var tempBgColor = Color.TRANSPARENT
@@ -59,6 +65,8 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
     init {
         adapter_rv = adapter_DialogFilter(util_country(ctx).country_sequence, this@DialogCountryJ, listenerSingle).apply {
             modelsFull = util_country(ctx).list_country as MutableList<Country>
+            cateColor = ContextCompat.getColor(ctx, R.color.section_text)
+            cateBGColor = ContextCompat.getColor(ctx, R.color.section_bg)
 
         }
 
@@ -185,6 +193,7 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
         initBinding()
 
         adapter_rv.submitList(vm.countryModels.value)
+        startSort()
 
         return binding.root
 
@@ -1063,6 +1072,75 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
 
     }
 
+    fun setCategoryVisible(b: Boolean){
+        adapter_rv.cateSeperator = b
+
+    }
+
+    fun setCategoryColor(c: Int){
+        adapter_rv.cateColor = c
+
+    }
+
+    fun setCategoryBGColor(c: Int){
+        adapter_rv.cateBGColor = c
+
+    }
+
+    fun setDivider(b: Boolean){
+        if(::vm.isInitialized) vm.divider.value = b
+        else tempDivider = b
+
+    }
+
+    fun setManualNameChange(hm : HashMap<String, String>){
+        adapter_rv.apply {
+            modelsFull.filterSetName(hm)
+
+        }
+
+    }
+
+    fun setManualNameShortChange(hm : HashMap<String, String>){
+        adapter_rv.apply {
+            modelsFull.filterSetSName(hm)
+
+        }
+
+    }
+
+    fun setManualPrefixChange(hm : HashMap<String, String>){
+        adapter_rv.apply {
+            modelsFull.filterSetPrefix(hm)
+
+        }
+
+    }
+
+    fun setManualCurrencyChange(hm : HashMap<String, String>){
+        adapter_rv.apply {
+            modelsFull.filterSetCurrency(hm)
+
+        }
+
+    }
+
+    fun setManualCurrencyShortChange(hm : HashMap<String, String>){
+        adapter_rv.apply {
+            modelsFull.filterSetSCurrency(hm)
+
+        }
+
+    }
+
+    fun setManualCapitalChange(hm : HashMap<String, String>){
+        adapter_rv.apply {
+            modelsFull.filterSetCapital(hm)
+
+        }
+
+    }
+
     //Result
     override fun onResult(c: Country) {
 
@@ -1097,6 +1175,7 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
         vm.searchColor.value = tempSearchColor
         vm.bgColor.value = tempBgColor
         vm.bgColorSubmit.value = tempBgColorSubmit
+        vm.divider.value = tempDivider
 
         binding.dialogFilterSubmit.visibility = if(adapter_rv.cseq.realSeq(1).visible) VISIBLE else GONE
         binding.dialogFilterSearch.visibility = if(vm.searchVisibility.value!!) VISIBLE else GONE
@@ -1105,6 +1184,16 @@ class DialogCountryJ(ctx : Context) : DialogFragment(), MultiButtonEnable,
         binding.dialogFilterSortLl.visibility = if(vm.sortedVisiblity.value!!) VISIBLE else GONE
         binding.dialogFilterCl.setBackgroundColor(vm.bgColor.value!!)
         binding.dialogFilterSubmit.setBackgroundResource(vm.bgColorSubmit.value!!)
+
+        if(vm.divider.value!!){
+            binding.dialogFilterRv.addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    LinearLayoutManager.VERTICAL
+                )
+            )
+
+        }
 
     }
 

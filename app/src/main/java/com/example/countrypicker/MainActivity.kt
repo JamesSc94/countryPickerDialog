@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         hm["Malaysia"] = "malaysia individual"
         hm["Indonesia"] = "indonesia"
 
+        val hmmanual = HashMap<String, String>()
+        hmmanual["Malaysia"] = "alaysia"
+        hmmanual["Indonesia"] = "ndonesia"
+
         val rv = findViewById<CountryRecyclerview>(R.id.activity_main_rv)
         rv.setVisibleCheckbox(true)
         rv.setVisiblePrefix(true)
@@ -137,6 +141,18 @@ class MainActivity : AppCompatActivity() {
         rv.setBackgroundColor(Color.GRAY)
         rv.setBackgroundListOddColor(Color.GREEN)
         rv.setBackgroundListEvenColor(Color.CYAN)
+
+        rv.setCategoryVisible(true)
+        rv.setCategoryColor(Color.BLUE)
+        rv.setCategoryBGColor(Color.GREEN)
+        rv.setDivider(true)
+
+        rv.setManualPrefixChange(hmmanual)
+        rv.setManualNameShortChange(hmmanual)
+        rv.setManualCurrencyChange(hmmanual)
+        rv.setManualCurrencyShortChange(hmmanual)
+        rv.setManualCapitalChange(hmmanual)
+        rv.setManualNameChange(hmmanual)
 
         rv.setOnSelectionListener(object : OnSelectionListener {
             override fun onResult(c : Country) {
@@ -289,7 +305,20 @@ class MainActivity : AppCompatActivity() {
         d.setBackgroundListOddColor(Color.GREEN)
         d.setBackgroundListEvenColor(Color.CYAN)
 
-        d.show(this.supportFragmentManager, "")
+        d.setCategoryVisible(true)
+        d.setCategoryColor(Color.BLUE)
+        d.setCategoryBGColor(Color.GREEN)
+        d.setDivider(true)
+
+        d.setManualPrefixChange(hmmanual)
+        d.setManualNameShortChange(hmmanual)
+        d.setManualCurrencyChange(hmmanual)
+        d.setManualCurrencyShortChange(hmmanual)
+        d.setManualCapitalChange(hmmanual)
+        d.setManualNameChange(hmmanual)
+
+
+//        d.show(this.supportFragmentManager, "")
 
         d.setOnSelectionListener(object : OnSelectionListener {
             override fun onResult(c : Country) {

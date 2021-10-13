@@ -19,6 +19,7 @@ class Vm_dialog_filter : ViewModel() {
     var sortedType = MutableLiveData<Int>()
     var sortedVisiblity = MutableLiveData<Boolean>()
     var sortedPrioritize = MutableLiveData<List<String>>()
+    var divider = MutableLiveData<Boolean>()
     var bgColor = MutableLiveData<Int>()
     var bgColorSubmit = MutableLiveData<Int>()
     var multiSelectionSubmit = MutableLiveData<Boolean>()

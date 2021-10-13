@@ -8,16 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.jamessc.countrypicker.Country
-import com.jamessc.countrypicker.CountrySequence
-import com.jamessc.countrypicker.DialogCountryJ
-import com.jamessc.countrypicker.OnSelectionListener
+import com.jamessc.countrypicker.*
 import com.jamessc.countrypicker.databinding.CellDialogFilteringBinding
 import com.jamessc.countrypicker.util.getImage
 import com.jamessc.countrypicker.util.normal
@@ -38,6 +36,9 @@ class adapter_DialogFilter constructor(val cseq : MutableList<CountrySequence>,
     var filterType = "name"
     var oddColor = Color.TRANSPARENT
     var evenColor = Color.TRANSPARENT
+    var cateSeperator = false
+    var cateColor = Color.BLACK
+    var cateBGColor = Color.DKGRAY
     private val overrideSeq = listOf<Int>(3, 4, 6, 7, 8 ,9)
 
     lateinit var modelsFull: MutableList<Country>
@@ -48,13 +49,13 @@ class adapter_DialogFilter constructor(val cseq : MutableList<CountrySequence>,
 
         return ItemViewHolder(binding.root, binding,
             cseq, if(cseq.size > 0) cseq.filter { it.sequence == 1 }[0].visible else false, frag,
-            overrideSeq, listenerSingle)
+            overrideSeq, listenerSingle, cateColor, cateBGColor)
 
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, pos: Int) {
         holder.itemView.setBackgroundColor(if(pos%2 == 0) oddColor else evenColor)
-        holder.bind(getItem(pos))
+        holder.bind(getItem(pos), if(cateSeperator) pos > 0 && getItem(pos - 1).name.substring(0, 1).equals(getItem(pos).name.substring(0, 1), true) else true)
 
     }
 
@@ -62,10 +63,15 @@ class adapter_DialogFilter constructor(val cseq : MutableList<CountrySequence>,
                          private val cseq: MutableList<CountrySequence>,
                          private val multiSelection : Boolean, private val frag : DialogCountryJ,
                          private  val overrideSeq : List<Int>,
-                         private val listener : OnSelectionListener) : RecyclerView.ViewHolder(itemView) {
+                         private val listener : OnSelectionListener,
+                         private val cateColor: Int, private val cateBGColor: Int) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: Country) = with(itemView) {
+        fun bind(item: Country, secHeader: Boolean) = with(itemView) {
             binding.model = item
+            binding.sectiontext = item.name.first().toString()
+            binding.sectiontextcolor = cateColor
+            binding.sectiontextcolorbg = cateBGColor
+            binding.sectiontextvisibility = if (secHeader) View.GONE else View.VISIBLE
             binding.executePendingBindings()
 
             Glide.with(itemView.context).load(item.flag.getImage(itemView.context)).centerCrop().into(binding.cellDialogFilterFlag)

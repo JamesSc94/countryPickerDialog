@@ -35,6 +35,9 @@ class adapterCountryRecyclerview constructor(val cseq : MutableList<CountrySeque
     var SortedPrioritize = arrayListOf<String>()
     var SortedType = 4
     var BgColor = Color.RED
+    var cateSeperator = false
+    var cateColor = Color.BLACK
+    var cateBGColor = Color.DKGRAY
 
     lateinit var modelsFull: MutableList<Country>
 
@@ -45,14 +48,13 @@ class adapterCountryRecyclerview constructor(val cseq : MutableList<CountrySeque
         return ItemViewHolder(
             binding.root, binding,
             cseq, if (cseq.size > 0) cseq.filter { it.sequence == 1 }[0].visible else false, crv,
-            overrideSeq, listenerSingle
-        )
+            overrideSeq, listenerSingle,  cateColor, cateBGColor)
 
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, pos: Int) {
         holder.itemView.setBackgroundColor(if(pos%2 == 0) oddColor else evenColor)
-        holder.bind(getItem(pos))
+        holder.bind(getItem(pos), if(cateSeperator) pos > 0 && getItem(pos - 1).name.substring(0, 1).equals(getItem(pos).name.substring(0, 1), true) else true)
 
     }
 
@@ -60,11 +62,25 @@ class adapterCountryRecyclerview constructor(val cseq : MutableList<CountrySeque
                          private val cseq: MutableList<CountrySequence>,
                          private val multiSelection : Boolean, private val crv : CountryRecyclerview,
                          private  val overrideSeq : List<Int>,
-                         private val listener : OnSelectionListener) : RecyclerView.ViewHolder(itemView) {
+                         private val listener : OnSelectionListener,
+                         private val cateColor: Int, private val cateBGColor: Int) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: Country) = with(itemView) {
+        fun bind(item: Country, secHeader: Boolean) = with(itemView) {
             binding.model = item
+            binding.sectiontext = item.name.first().toString()
+            binding.sectiontextcolor = cateColor
+            binding.sectiontextcolorbg = cateBGColor
+            binding.sectiontextvisibility = if (secHeader) View.GONE else View.VISIBLE
             binding.executePendingBindings()
+
+            if (secHeader) {
+                binding.cellDialogFilteringSection.visibility = View.GONE
+
+            } else {
+                binding.cellDialogFilteringSection.visibility = View.VISIBLE
+                binding.cellDialogFilteringSection.text = "A"
+
+            }
 
             Glide.with(itemView.context).load(item.flag.getImage(itemView.context)).centerCrop().into(binding.cellDialogFilterFlag)
 

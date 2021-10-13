@@ -305,6 +305,90 @@ fun List<Country>.filterNameListExclude(list: List<String>) : List<Country> {
 
 }
 
+fun List<Country>.filterSetName(hm : HashMap<String, String>) {
+    hm.onEach { entry ->
+        this.filterNameOnly(entry.key).apply {
+            if (isNotEmpty()){
+                this[0].name = entry.value
+
+            }
+
+        }
+
+    }
+
+}
+
+fun List<Country>.filterSetSName(hm : HashMap<String, String>) {
+    hm.onEach { entry ->
+        this.filterNameOnly(entry.key).apply {
+            if (isNotEmpty()){
+                this[0].sname = entry.value
+
+            }
+
+        }
+
+    }
+
+}
+
+fun List<Country>.filterSetPrefix(hm : HashMap<String, String>) {
+    hm.onEach { entry ->
+        this.filterNameOnly(entry.key).apply {
+            if (isNotEmpty()){
+                this[0].prefix = entry.value
+
+            }
+
+        }
+
+    }
+
+}
+
+fun List<Country>.filterSetCurrency(hm : HashMap<String, String>) {
+    hm.onEach { entry ->
+        this.filterNameOnly(entry.key).apply {
+            if (isNotEmpty()){
+                this[0].currency = entry.value
+
+            }
+
+        }
+
+    }
+
+}
+
+fun List<Country>.filterSetSCurrency(hm : HashMap<String, String>) {
+    hm.onEach { entry ->
+        this.filterNameOnly(entry.key).apply {
+            if (isNotEmpty()){
+                this[0].scurrency = entry.value
+
+            }
+
+        }
+
+    }
+
+}
+
+fun List<Country>.filterSetCapital(hm : HashMap<String, String>) {
+    hm.onEach { entry ->
+        this.filterNameOnly(entry.key).apply {
+            if (isNotEmpty()){
+                this[0].capital = entry.value
+
+            }
+
+        }
+
+    }
+
+}
+
 fun List<Country>.filterSetInfoName(hm : HashMap<String, String>) {
     hm.onEach { entry ->
         this.filterNameOnly(entry.key).apply {
@@ -325,12 +409,12 @@ fun MutableList<Country>.sortedBy(list: List<String>, type: Int) : MutableList<C
 
     tempPrior.addAll(tempRemain.sortedBy {
         when(type){
-            4 -> it.name
-            6 -> it.sname
-            7 -> it.currency
-            8 -> it.scurrency
+            4 -> it.name.lowercase()
+            6 -> it.sname.lowercase()
+            7 -> it.currency.lowercase()
+            8 -> it.scurrency.lowercase()
             else ->  {
-                it.capital
+                it.capital.lowercase()
             }
 
         }

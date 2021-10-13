@@ -3,6 +3,8 @@ package com.jamessc.countrypicker
 import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jamessc.countrypicker.adapter.MultiButtonEnable
@@ -27,11 +29,14 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
         layoutManager = llm_smooth(context, LinearLayoutManager.VERTICAL, false)
         adapt = adapterCountryRecyclerview(util_country(context).country_sequence, this, listenerSingle).apply {
             modelsFull = util_country(context).list_country as MutableList<Country>
+            cateColor = ContextCompat.getColor(context, R.color.section_text)
+            cateBGColor = ContextCompat.getColor(context, R.color.section_bg)
             submitList(modelsFull)
 
         }
 
         adapter = adapt
+        startSort()
 
     }
 
@@ -766,6 +771,82 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
 
     fun setBackgroundListEvenColor(c: Int){
         (adapter as adapterCountryRecyclerview).evenColor = c
+
+    }
+
+    fun setCategoryVisible(b: Boolean){
+        (adapter as adapterCountryRecyclerview).cateSeperator = b
+
+    }
+
+    fun setCategoryColor(c: Int){
+        (adapter as adapterCountryRecyclerview).cateColor = c
+
+    }
+
+    fun setCategoryBGColor(c: Int){
+        (adapter as adapterCountryRecyclerview).cateBGColor = c
+
+    }
+
+    fun setDivider(b: Boolean){
+        if(b){
+            this.addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    LinearLayoutManager.VERTICAL
+                )
+            )
+
+        }
+
+    }
+
+    fun setManualNameChange(hm : HashMap<String, String>){
+        (adapter as adapterCountryRecyclerview).apply {
+            modelsFull.filterSetName(hm)
+
+        }
+
+    }
+
+    fun setManualNameShortChange(hm : HashMap<String, String>){
+        (adapter as adapterCountryRecyclerview).apply {
+            modelsFull.filterSetSName(hm)
+
+        }
+
+    }
+
+    fun setManualPrefixChange(hm : HashMap<String, String>){
+        (adapter as adapterCountryRecyclerview).apply {
+            modelsFull.filterSetPrefix(hm)
+
+        }
+
+    }
+
+    fun setManualCurrencyChange(hm : HashMap<String, String>){
+        (adapter as adapterCountryRecyclerview).apply {
+            modelsFull.filterSetCurrency(hm)
+
+        }
+
+    }
+
+    fun setManualCurrencyShortChange(hm : HashMap<String, String>){
+        (adapter as adapterCountryRecyclerview).apply {
+            modelsFull.filterSetSCurrency(hm)
+
+        }
+
+    }
+
+    fun setManualCapitalChange(hm : HashMap<String, String>){
+        (adapter as adapterCountryRecyclerview).apply {
+            modelsFull.filterSetCapital(hm)
+
+        }
 
     }
 

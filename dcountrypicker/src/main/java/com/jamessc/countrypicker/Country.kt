@@ -3,12 +3,12 @@ package com.jamessc.countrypicker
 import android.widget.LinearLayout
 
 data class Country(val id : Int,
-                   val name : String,
-                   val sname : String,
-                   val prefix : String,
-                   val currency : String,
-                   val scurrency : String,
-                   val capital : String,
+                   var name : String,
+                   var sname : String,
+                   var prefix : String,
+                   var currency : String,
+                   var scurrency : String,
+                   var capital : String,
                    var flag : String,
                    var info : String,
                    var specTVN : CountryTVSpec,
