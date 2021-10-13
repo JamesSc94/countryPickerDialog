@@ -44,6 +44,19 @@ Step 4. Usage (View or DialogFragment)
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 	
+	val hidden = arrayListOf<String>("Thailand", "")
+        val show = arrayListOf<String>("Singapore", "Malaysia")
+        val showTemp = arrayListOf<String>("Afghanistan")
+        val showSize = arrayListOf<String>("Malaysia")
+
+        val hm = HashMap<String, String>()
+        hm["Malaysia"] = "malaysia individual"
+        hm["Indonesia"] = "indonesia"
+
+        val hmmanual = HashMap<String, String>()
+        hmmanual["Malaysia"] = "alaysia"
+        hmmanual["Indonesia"] = "ndonesia"
+	
 	val rv = findViewById<CountryRecyclerview>(R.id.activity_main_rv)
         rv.setVisibleCheckbox(true)
         rv.setVisiblePrefix(true)
@@ -156,6 +169,18 @@ Step 4. Usage (View or DialogFragment)
         rv.setBackgroundColor(Color.GRAY)
         rv.setBackgroundListOddColor(Color.GREEN)
         rv.setBackgroundListEvenColor(Color.CYAN)
+	
+	rv.setCategoryVisible(true)
+        rv.setCategoryColor(Color.BLUE)
+        rv.setCategoryBGColor(Color.GREEN)
+        rv.setDivider(true)
+
+        rv.setManualPrefixChange(hmmanual)
+        rv.setManualNameShortChange(hmmanual)
+        rv.setManualCurrencyChange(hmmanual)
+        rv.setManualCurrencyShortChange(hmmanual)
+        rv.setManualCapitalChange(hmmanual)
+        rv.setManualNameChange(hmmanual)
 
         rv.setOnSelectionListener(object : OnSelectionListener {
             override fun onResult(c : Country) {
@@ -317,6 +342,18 @@ Step 4. Usage (View or DialogFragment)
         d.setBackgroundColorButton(R.drawable.button_submit)
         d.setBackgroundListOddColor(Color.GREEN)
         d.setBackgroundListEvenColor(Color.CYAN)
+	
+	d.setCategoryVisible(true)
+        d.setCategoryColor(Color.BLUE)
+        d.setCategoryBGColor(Color.GREEN)
+        d.setDivider(true)
+
+        d.setManualPrefixChange(hmmanual)
+        d.setManualNameShortChange(hmmanual)
+        d.setManualCurrencyChange(hmmanual)
+        d.setManualCurrencyShortChange(hmmanual)
+        d.setManualCapitalChange(hmmanual)
+        d.setManualNameChange(hmmanual)
 
         d.show(this.supportFragmentManager, "")
 	
