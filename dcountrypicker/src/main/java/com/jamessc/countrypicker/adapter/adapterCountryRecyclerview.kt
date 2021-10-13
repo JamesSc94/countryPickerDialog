@@ -73,15 +73,6 @@ class adapterCountryRecyclerview constructor(val cseq : MutableList<CountrySeque
             binding.sectiontextvisibility = if (secHeader) View.GONE else View.VISIBLE
             binding.executePendingBindings()
 
-            if (secHeader) {
-                binding.cellDialogFilteringSection.visibility = View.GONE
-
-            } else {
-                binding.cellDialogFilteringSection.visibility = View.VISIBLE
-                binding.cellDialogFilteringSection.text = "A"
-
-            }
-
             Glide.with(itemView.context).load(item.flag.getImage(itemView.context)).centerCrop().into(binding.cellDialogFilterFlag)
 
             overrideSeq.onEach {

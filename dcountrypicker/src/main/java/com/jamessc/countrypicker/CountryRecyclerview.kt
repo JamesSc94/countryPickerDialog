@@ -36,7 +36,6 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
         }
 
         adapter = adapt
-        startSort()
 
     }
 
@@ -748,7 +747,8 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
 
     private fun startSort(){
         (adapter as adapterCountryRecyclerview).apply {
-            modelsFull.sortedBy(SortedPrioritize, SortedType)
+            val temp = modelsFull.sortedBy(SortedPrioritize, SortedType)
+            modelsFull = temp
             submitList(modelsFull)
 
         }
@@ -808,6 +808,8 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
 
         }
 
+        startSort()
+
     }
 
     fun setManualNameShortChange(hm : HashMap<String, String>){
@@ -815,6 +817,8 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
             modelsFull.filterSetSName(hm)
 
         }
+
+        startSort()
 
     }
 
@@ -824,6 +828,8 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
 
         }
 
+        startSort()
+
     }
 
     fun setManualCurrencyChange(hm : HashMap<String, String>){
@@ -831,6 +837,8 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
             modelsFull.filterSetCurrency(hm)
 
         }
+
+        startSort()
 
     }
 
@@ -840,6 +848,8 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
 
         }
 
+        startSort()
+
     }
 
     fun setManualCapitalChange(hm : HashMap<String, String>){
@@ -847,6 +857,8 @@ class CountryRecyclerview(context: Context, attrs: AttributeSet?, defStyleAttr: 
             modelsFull.filterSetCapital(hm)
 
         }
+
+        startSort()
 
     }
 
